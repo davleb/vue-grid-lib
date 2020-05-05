@@ -1,0 +1,47 @@
+{
+  "name": "vue-custom-grid",
+  "description": "A vuejs library around grid component",
+  "version": "1.0.0",
+  "author": {
+    "name":"David Lebret",
+    "email": "davleb@zohomail.eu"
+  },
+  "license": "MIT",
+  "private": false,
+  "files": ["dist"],
+  "mainO": "main-lib.js",
+  "main": "VueGridLib.umd.js",
+  "unpkg": "VueGridLib.umd.min.js",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
+    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
+    "build:wc": "cross-env NODE_ENV=development vue-cli-service build --target wc './src/components/*/*.vue'",
+    "build:lib": "cross-env NODE_ENV=production vue-cli-service build --target lib --name VueGridLib './src/main-lib.js'"
+  },
+  "dependencies": {
+    "@mdi/font": "^5.0.45",
+    "bootstrap": "^4.4.1",
+    "bootstrap-vue": "^2.8.0",
+    "jquery": "^3.4.1",
+    "moment": "^2.24.0",
+    "vue": "^2.6.11"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ],
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-stage-3": "^6.24.1",
+    "cross-env": "^5.0.5",
+    "css-loader": "^0.28.7",
+    "file-loader": "^1.1.4",
+    "vue-loader": "^13.0.5",
+    "vue-template-compiler": "^2.4.4",
+    "webpack": "^3.6.0",
+    "webpack-dev-server": ">=3.1.11"
+  }
+}

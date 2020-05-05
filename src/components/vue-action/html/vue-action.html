@@ -1,0 +1,5 @@
+<div id="root-actions" styled="display: inline" :style="setDisplay(def.condition, dataunit)">
+<button :class="def.buttonclass || makeClass(def.makeclass, target, dataunit)" :onclick="makeLink(def.onclick, target, dataunit)" :title="def.onclick + target + '(' + dataunit +')'">
+<span :class="def.glyphiconclass"></span>
+</button>
+</div>

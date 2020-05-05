@@ -1,0 +1,22 @@
+<div>
+    <div id="paginator" v-show="previous || next">
+        <nav >
+            <ul>
+                <li v-show="previous" style="float:left">
+                    <a @click.prevent="paginate('previous')" class="page-link rounded-pill" href="#">
+                        &lt; Previous
+                    </a>
+                </li>
+                <li class="rounded-pill" v-for="(item, index) in paginatorArray" >
+                    <a @click.prevent="pageChanged(item)" href="#" class="page-link rounded-pill p-2">&nbsp;&nbsp;{{item}}&nbsp;&nbsp;</a>
+                </li>
+
+                <li v-show="next" style="float:right">
+                    <a @click.prevent="paginate('next')" class="page-link rounded-pill" href="#">
+                        Next &gt;
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>

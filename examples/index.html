@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>vue-custom-grid-example 1</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.js"></script>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/bootstrap-vue@latest/dist0/bootstrap-vue.js"></script>
+
+
+    <!-- Required Stylesheets -->
+    <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.min.css"/>
+    <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap-vue@latest/dist0/bootstrap-vue.css"/>
+
+    <link type="text/css" rel="stylesheet" href="../dist/VueGridLib.css" />
+
+  </head>
+  <body>
+    <script src="../dist/VueGridLib.umd.js"></script>
+
+    <script>
+    console.log(VueCustomGridLib);
+    console.log(VueCustomGridLib.VueCustomGrid);
+    </script>
+
+    <iframe id="inlineFrameExample"
+      title="Inline Frame Example"
+      width="300"
+      height="200"
+      src="../dist/VueCustomGridLib.umd.js">
+    </iframe>
+
+
+    <div class="container-fluid">
+
+    	<div id="app-view-model">
+    	  <vue-custom-grid :fetchurl="fetchurl" :bus="bus" :language="language" :itemsperpage="itemsperpage" :actions="actions" :actionplus="actionplus">
+    	  </vue-custom-grid>
+        <vue-pagination :bus="bus" :limit="10" :display="previous-numbers-next"></vue-pagination>
+    	</div>
+    </div>
+
+      <script type="module">
+          //import {VueCustomGrid, VuePagination} from '../dist/VueCustomGridLib.umd.js'
+          //alert("VueCustomGrid");
+          //console.log(VueCustomGrid);
+      </script>
+
+    <script>
+
+    //Vue.use(BootstrapVue);
+
+      var gridData = [];
+      var gridColumns = [];
+      var gridHeaders = [];
+      var gridHideColumns=["id_owner","flyer_txt","flyer_img","id_entry","id_version","path", "isfav", "lesson", "can_form"];
+      var actions =[
+      {glyphiconclass:'mdi mdi-thumb-up',buttonclass:'btn btn-sm btn-info',onclick:"launchBlank('http://www.aol.com?with-my-param=$members')"},
+      {glyphiconclass:'mdi mdi-pencil',buttonclass:'btn btn-sm btn-info',onclick:"goTo('http://www.aol.com?with-my-id=$id')"},
+      {glyphiconclass:'mdi mdi-account',buttonclass:'btn btn-sm btn-info',onclick:"launchModal('Users attached to the role','/users/role/form/$id/membership')"},
+      {glyphiconclass:'mdi mdi-camera-iris',buttonclass:'btn btn-sm btn-success',onclick:"launchModal('Copy or move','/docws/form/$id/$id/transfer')"},
+      {glyphiconclass:'mdi mdi-delete-outline',buttonclass:'btn btn-sm btn-warning',onclick:"launchModal('Delete the role', '/docws/form/$id/$id/$id/delete')"}
+      ];
+
+      //var actionsColumns = {orig_file_name: actionsFileName};
+      var EventBus = new Vue();
+
+      var gridViewModel = new Vue({
+        el: '#app-view-model',
+        components:{
+          VueCustomGrid: VueGridLib.VueCustomGrid,
+          VuePagination: VueGridLib.VuePagination
+        },
+        data: {
+          fetchurl: 'http://localhost:8080/jsonnoauth/get-users-roles',
+          hcolumns: ["activated"],
+          language: 'fr',
+          actions: actions,
+          actionplus: "goTo('/users/role/0/form')",
+          itemsperpage: 3,
+          bus: EventBus
+      	  //gridHeaders: gridHeaders,
+          //gridColumns: gridColumns,
+          //gridHideColumns: gridHideColumns,
+          //translator: translator,
+      	  //translatorService: "/json/get-translation?language=",
+          //gridData: gridData,
+          //actions: actions,
+          //actionPlus: "launchModal('{{ trs .L "Upload"}}','/form/get-upload-form?idEntry=$id_entry')",
+          //actionSave: "alertMeMe()",
+          //actionsColumns: actionsColumns,
+          //customRender: customRender,
+          //startRow: 0,
+          //page:1,
+          //license: 'ADF454EE',
+          //options: {ChooseFilter: true, ChooseDisplay: true, ChooseFields: true},
+          //bus: EventBus
+        }
+      });
+
+
+    </script>
+
+  </body>
+</html>
