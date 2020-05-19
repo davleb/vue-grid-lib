@@ -120,7 +120,7 @@ Vue-Pagination is emitting an event "vue-pagination:pageUpdated" wich allows Vue
 | itemsperpage | items per page for grid and paginator | Number| No||
 | searchquery | search parameters to use with fetchurl | String| No||
 | sortedby | name of the column to use for sort | String| No||
-| sortedasc | asc or desc order to use with sortedby prop| Boolean| No| Asc|
+| sortedasc | asc or desc order to use with sortedby prop| Boolean| No| true|
 | options | minor options for display| Object| No||
 | bus | event bus | Object | yes if VuePaginator is used| |
 
