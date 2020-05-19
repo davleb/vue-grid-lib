@@ -4,27 +4,27 @@ import moment from 'moment';
 import JQuery from 'jquery';
 window.$ = JQuery;
 
-require('bootstrap/js/dist/modal');
 export default {
   name: 'VueCustomGrid',
   components: {
     VueAction
   },
   props: {
-    feed: Array,
+    feed: {},
     fetchurl: String,
     dateformat: String,
     restitle: String,
 
     language: String,
-    translator: Array,
+    translator: [],
     translatorservice: String,
 
     actions: Array,
     actionscolumns: Object,
-    actionplus: String,
-    actionsave: String,
+    actionplus: "",
+    actionsave: "",
 
+    verbose: false,
     customrender: Object,
     itemsperpage: Number,
     searchquery: String,
@@ -33,20 +33,23 @@ export default {
     options: Object,
     bus: Object
 
+
   },
 
   data: function() {
     return {
-      headers: Array,
-      hheaders: Array,
-      columns: Array,
-      hcolumns: Array,
+      headers: [],
+      hheaders: [],
+      columns: [],
+      hcolumns: [],
+      rows: [],
       page: 1,
       maxPage: 1,
       ordererBy: "",
       orderedAsc: true,
       searchTerm: "",
-      appmessage: ""
+      appmessage: "",
+      fontcss: ""
     }
   },
   created: function() {
@@ -56,13 +59,23 @@ export default {
       this.options = {
         ChooseFilter: true,
         ChooseDisplay: true,
-        ChooseFields: true
+        ChooseFields: true,
+        Style: "",
       };
     }
+    if (this.options.Style == "") {
+      this.options.Style = "font-family: Arial, Helvetica, sans-serif;";
+    }
 
-    //fetch data from url
-    this.fetchData();
-    //this.simulFetch();
+    //fetch data from url only if feed is empty array
+    if (this.feed == {}) {
+      this.log("(vue-custom-grid)...load data from url");
+      this.fetchDataUrl();
+    } else {
+      this.log("(vue-custom-grid)...load data from local json data");
+      //this.loadData();
+      this.simulFetch();
+    }
 
 
   },
@@ -71,16 +84,17 @@ export default {
     comp.orderedBy = comp.sortedby;
     comp.orderedAsc = comp.sortedasc;
 
-    comp.maxPage = Math.ceil(comp.feed.length / comp.itemsperpage);
-    console.log('max page calculated is : ' + comp.maxPage);
-    comp.bus.$emit('maxPage', comp.maxPage);
+    comp.maxPage = Math.ceil(comp.rows.length / comp.itemsperpage);
+
+    comp.bus.$emit('vue-custom-grid:maxPage', comp.maxPage);
+    comp.log('(vue-custom-grid)... max page is:' + comp.maxPage);
 
     comp.bus.$on('vue-paginator:pageUpdated', function(page) {
-      console.log('(vue-table)... page number triggered:' + page);
+      comp.log('(vue-custom-grid)... page number triggered:' + page);
 
       comp.page = page;
-      console.log('(vue-table)... this is a registered version:' + comp.$parent.license);
-      //comp.$parent.logPaginate(page);
+      comp.log('(vue-custom-grid)... this is a registered version:' + comp.$parent.license);
+
     }.bind(this));
 
   },
@@ -88,7 +102,7 @@ export default {
   computed: {
     filteredData() {
 
-      if (this.feed.length == 0) {
+      if (this.rows.length == 0) {
         this.appmessage = "Sorry, there is no result found.";
       } else {
         this.appmessage = "";
@@ -98,33 +112,28 @@ export default {
         return;
       }
 
-      console.log(this.searchTerm);
-      console.log("SORTED BY " + this.orderedBy + " " + this.orderedAsc);
-
-      var prop = this.orderedBy;
-      var asc = this.orderedAsc;
+      var oBy = this.orderedBy;
+      var oAsc = this.orderedAsc;
 
       var isDate = false;
 
-      if (prop !== "" && prop != undefined) {
-        isDate = this.checkDateType(prop);
-        console.log("ISDATE ===" + isDate);
+      if (oBy !== "" && oBy != undefined) {
+        isDate = this.checkDateType(oBy);
+
       }
 
-      var filteredFeed = this.feed;
-      console.log("DEBUT");
-      console.log(filteredFeed);
+      var filteredRows = this.rows;
 
-      if (prop !== "" && prop != undefined) {
-        filteredFeed = filteredFeed.sort(function(a, b) {
-          if (asc) {
+      if (oBy !== "" && oBy != undefined) {
+        filteredRows = filteredRows.sort(function(a, b) {
+          if (oAsc) {
 
             if (!isDate) {
               //return (a[prop] > b[prop]) ? 1 : ((a[prop] < b[prop]) ? -1 : 0);
-              return a[prop].toString().localeCompare(b[prop].toString());
+              return a[oBy].toString().localeCompare(b[oBy].toString());
             } else {
-              var date1 = moment(a[prop], "DD-MM-YYYY");
-              var date2 = moment(b[prop], "DD-MM-YYYY");
+              var date1 = moment(a[oBy], "DD-MM-YYYY");
+              var date2 = moment(b[oBy], "DD-MM-YYYY");
               return (date1 > date2 ? 1 : date1 < date2 ? -1 : 0);
             }
 
@@ -132,10 +141,10 @@ export default {
 
             if (!isDate) {
               //return (b[prop] > a[prop]) ? 1 : ((b[prop] < a[prop]) ? -1 : 0);
-              return b[prop].toString().localeCompare(a[prop].toString());
+              return b[oBy].toString().localeCompare(a[oBy].toString());
             } else {
-              var date1 = moment(a[prop], "DD-MM-YYYY");
-              var date2 = moment(b[prop], "DD-MM-YYYY");
+              var date1 = moment(a[oBy], "DD-MM-YYYY");
+              var date2 = moment(b[oBy], "DD-MM-YYYY");
               return (date2 > date1 ? 1 : date2 < date1 ? -1 : 0);
             }
           }
@@ -146,51 +155,49 @@ export default {
       //if server side pagination, only filter for first insertion
       //if (this.page == 1){
       if (true) {
-        console.log("AVANT");
-        console.log(filteredFeed);
-        filteredFeed = filteredFeed.slice((this.itemsperpage) * (this.page - 1), (this.itemsperpage) * (this.page));
-        console.log("APRES");
-        console.log(filteredFeed);
+        filteredRows = filteredRows.slice((this.itemsperpage) * (this.page - 1), (this.itemsperpage) * (this.page));
       }
 
       if (this.searchTerm != "") {
         var st = this.searchTerm;
-        filteredFeed = this.feed.filter(item => {
+        filteredRows = this.rows.filter(item => {
           var found = false;
-          //var itemValues = Object.values(item);
+
           for (var itemProp in item) {
-            console.log(item[itemProp]);
             var itemValue = item[itemProp];
             if (typeof (itemValue) == "string" && itemValue.toLowerCase().indexOf(st.toLowerCase()) > -1) {
               found = true;
-              console.log("found!!!");
             }
           }
           return found;
-          //return item[1].toLowerCase().indexOf(this.searchTerm.toLowerCase()) > -1
+
         });
       };
 
-      return filteredFeed;
+      return filteredRows;
     },
     filteredColumns() {
+
       var fc = [];
       var comp = this;
+      comp.log("............filtering columns");
+      comp.log(comp.hcolumns);
       comp.headers.forEach(function(col, index) {
         if ((comp.hcolumns).indexOf(col) == -1) {
           fc.push(index);
         };
       });
+      comp.log(fc);
       return fc;
     },
 
     filteredHeaders() {
       var fh = [];
       var comp = this;
-      comp.hcolumns = ['activated'];
-      console.log("HCOLUMNS====");
-      console.log(JSON.stringify(comp.hcolumns));
-      console.log("HCOLUMNS====");
+      //comp.hcolumns = ['activated'];
+
+      comp.log("............filtering headers");
+      comp.log(comp.hcolumns);
 
       comp.headers.forEach(function(col, index) {
         if ((comp.hcolumns).indexOf(col) == -1) {
@@ -200,6 +207,7 @@ export default {
           });
         };
       });
+      comp.log(fh);
       return fh;
     },
 
@@ -229,10 +237,10 @@ export default {
   },//end filter
 
   methods: {
-    fetchData: function() {
+    fetchDataUrl: function() {
       var comp = this;
       comp.columns = [];
-      //console.log(paramSearch);
+
       $.ajax({
         url: comp.fetchurl,
         type: 'GET',
@@ -240,30 +248,37 @@ export default {
         //headers: { 'X-Requested-With': 'XMLHttpRequest' },
         contentType: "application/json; charset=utf-8",
         dataType: 'json',
-        //data: JSON.stringify(paramSearch),
+
         timeout: 3000,
         async: false,
         success: function(dataresp) {
-          console.log(JSON.stringify(dataresp));
-          //var self = this;
-          //console.log(JSON.parse(data));
+
           $.each((dataresp["dataRows"])[0], function(key, val) {
-            console.log(key);
             comp.columns.push(key);
           });
           comp.headers = dataresp["dataColumns"];
-          comp.feed = dataresp["dataRows"];
+          comp.rows = dataresp["dataRows"];
         },
         error: function(dataresp) {
-          console.log('this is a failure !!!!!!!!!!');
-          alert('this is a failure !!!!!!!!');
+          alert('Unable to fetch the url for data ? is the server available ?');
         }
       });
+    },
+    loadData: function() {
+      var comp = this;
+      comp.columns = [];
+
+      $.each((comp.feed["dataRows"])[0], function(key, val) {
+        comp.columns.push(key);
+      });
+
+      comp.headers = comp.feed["dataColumns"];
+      comp.rows = comp.feed["dataRows"];
+
     },
     renderCell: function(key, entry) {
       var comp = this;
       if (comp.customrender != null && comp.customrender[key] != null) {
-        //return('zo'+entry[key]);
         return '';
       } else {
         return (entry[key]);
@@ -278,14 +293,13 @@ export default {
         return '';
       }
     },
-    checkDateType: function(prop) {
+    checkDateType: function(oBy) {
       var testDate = true;
-      var maxLines = Math.min(100, this.feed.length);
+      var maxLines = Math.min(100, this.rows.length);
       for (var i = 0; i < maxLines; i++) {
-        var testString = this.feed[i][prop];
+        var testString = this.rows[i][oBy];
 
         if (!moment(testString, this.dateformat, true).isValid()) {
-          console.log("TESTSTRING" + this.dateformat + "====" + testString);
           testDate = false;
           break;
         }
@@ -298,7 +312,6 @@ export default {
       var comp = this;
 
       if (comp.language != null && comp.translator == null) {
-        console.log("TRANSLATOR IS NULL");
         comp.getTranslator(comp.language);
       }
 
@@ -328,19 +341,19 @@ export default {
         timeout: 3000,
         async: true,
         success: function(data) {
-          console.log(data);
+
           data.forEach(function(col, index) {
             var itemKeyTranslated = {};
             if (col != "Translation not found") {
               itemKeyTranslated[language] = col;
               comp.translator[comp.headers[index]] = itemKeyTranslated;
             } else {
-              console.log(comp.headers[index]);
+
               itemKeyTranslated[language] = comp.capitalizeFirstLetter(comp.headers[index]);
               comp.translator[comp.headers[index]] = itemKeyTranslated;
             }
           });
-          console.log(comp.translator);
+
         }
       });
     },
@@ -367,32 +380,18 @@ export default {
     getRowValueField(row, field) {
       var col = getColByField(field)
       var fieldValue = data[row][col]
-      console.log(fieldValue);
 
     },
     //future
     getRowValueCol(row, col) {
       var colValue = data[row][col]
-      console.log(colValue);
+
     },
 
     sortRowsBy(num) {
-      //where reorder, restart at page 1
-
-      //this.$bus.$emit('pageChanged',this.page);
+      //when sort, should restart at page 1
       var asc = true;
-      // this.sortedby = num;
-      //
-      // if (this.sortedasc == undefined) {
-      //   asc = true
-      // } else {
-      //   //inverse order
-      //   if (num == this.sortedby) {
-      //     this.sortedasc = !this.sortedasc;
-      //   }
-      //   asc = this.sortedasc;
-      // }
-
+      this.page = 1;
       this.orderedBy = num;
 
       if (this.orderedAsc == undefined) {
@@ -410,12 +409,10 @@ export default {
         $("#sortGlyph" + num).attr('class', 'mdi mdi-chevron-up-circle-outline');
       }
 
-      console.log("change the order of" + num);
     },
 
     makeLinkPlus: function() {
       var comp = this;
-      console.log("seize the :" + comp.actionplus);
       return "jQuery()." + comp.actionplus;
     },
 
@@ -425,36 +422,48 @@ export default {
     },
 
     showModal: function() {
-      $('#myGridModal').modal('show');
+      var modal = document.getElementById("myGridModal");
+      modal.style.display = "block";
+    },
+
+    closeModal: function() {
+      var modal = document.getElementById("myGridModal");
+      modal.style.display = "none";
     },
 
     adaptHeaders: function() {
 
+      var comp = this;
+      comp.hcolumns = [];
       //because find find does NOT return an array!
       var sHeaders = $(".selectClass:not(:checked)").toArray();
-      console.log(sHeaders);
 
-      var comp = this;
-      console.log(comp.headers);
-      comp.hcolumns = [];
-      console.log('empty hidden columns!!');
       sHeaders.forEach(function(elem, index) {
-        console.log('hide column:' + comp.headers[elem.value]);
         (comp.hcolumns).push((comp.headers)[elem.value]);
-
+        comp.log((comp.headers)[elem.value]);
       });
+    },
+    log: function(message) {
+      if (this.verbose) {
+        console.log(message);
+      }
+
     },
     simulFetch: function() {
       var comp = this;
       comp.columns = [];
-      var dataresp = { "dataColumns": ["id", "title", "description", "activated", "created_at", "updated_at", "members"], "dataRows": [{ "0": 1, "1": "Admin", "2": "Can administer the whole system", "3": true, "4": "11/08/2019", "5": "11/08/2019", "6": 2 }, { "0": 6, "1": "Atelier", "2": "Chefs d'alleirs et Directeur technique", "3": true, "4": "06/10/2019", "5": "06/10/2019", "6": 1 }, { "0": 4, "1": "Contributeurs", "2": "Chaque admin peut ajouter un utilisateur au groupe Contributeurs s'il juge celui-ci pertinent.", "3": true, "4": "23/09/2019", "5": "23/09/2019", "6": 2 }, { "0": 5, "1": "Direction", "2": "", "3": true, "4": "25/09/2019", "5": "25/09/2019", "6": 2 }, { "0": 8, "1": "Marketing", "2": "", "3": true, "4": "07/10/2019", "5": "07/10/2019", "6": 2 }, { "0": 3, "1": "Users", "2": "Standard users", "3": true, "4": "11/08/2019", "5": "11/08/2019", "6": 3 }, { "0": 7, "1": "Ventes", "2": "", "3": true, "4": "07/10/2019", "5": "07/10/2019", "6": 2 }, { "0": 2, "1": "Visitors", "2": "Users from invitation", "3": true, "4": "11/08/2019", "5": "11/08/2019", "6": 0 }] };
+      var dataresp = {
+        "dataColumns": ["id", "title", "description", "activated", "created_at", "updated_at", "members"], "dataRows": [{ "0": 1, "1": "Admin", "2": "Can administer the whole system", "3": true, "4": "11/08/2019", "5": "11/08/2019", "6": 2 }, { "0": 6, "1": "Atelier", "2": "Chefs d'alleirs et Directeur technique", "3": true, "4": "06/10/2019", "5": "06/10/2019", "6": 1 }, { "0": 4, "1": "Contributors", "2": "Contributors can initiate a document.", "3": true, "4": "23/09/2019", "5": "23/09/2019", "6": 2 }, { "0": 5, "1": "Managers", "2": "We have good ones", "3": true, "4": "25/09/2019", "5": "25/09/2019", "6": 2 }, { "0": 8, "1": "Marketing", "2": "", "3": true, "4": "07/10/2019", "5": "07/10/2019", "6": 2 }, { "0": 3, "1": "Users", "2": "Standard users", "3": true, "4": "11/08/2019", "5": "11/08/2019", "6": 3 }, { "0": 7, "1": "Sells", "2": "", "3": true, "4": "07/10/2019", "5": "07/10/2019", "6": 2 }, { "0": 2, "1": "Visitors", "2": "Users from invitation", "3": true, "4": "11/08/2019", "5": "11/08/2019", "6": 0 }, { "0": 15, "1": "Back-Office employees", "2": "", "3": true, "4": "25/09/2019", "5": "25/09/2019", "6": 2 },
+        { "0": 16, "1": "Security", "2": "Do not mess with them", "3": true, "4": "25/09/2019", "5": "25/09/2019", "6": 2 },
+        { "0": 18, "1": "Accountancy", "2": "", "3": true, "4": "25/09/2019", "5": "25/09/2019", "6": 2 },
+        { "0": 5, "1": "Geeks", "2": "Can solve any problems", "3": true, "4": "25/09/2019", "5": "25/09/2019", "6": 2 }]
+      };
       $.each((dataresp["dataRows"])[0], function(key, val) {
-        console.log(key);
         comp.columns.push(key);
       });
 
       comp.headers = dataresp["dataColumns"];
-      comp.feed = dataresp["dataRows"];
+      comp.rows = dataresp["dataRows"];
     }
 
   }//end methods

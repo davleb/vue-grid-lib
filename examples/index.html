@@ -5,62 +5,41 @@
     <title>vue-custom-grid-example 1</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.js"></script>
     <script src="https://unpkg.com/vue"></script>
-    <script src="https://unpkg.com/bootstrap-vue@latest/dist0/bootstrap-vue.js"></script>
 
-
-    <!-- Required Stylesheets -->
-    <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.min.css"/>
-    <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap-vue@latest/dist0/bootstrap-vue.css"/>
-
+    <script src="../dist/VueGridLib.umd.js"></script>
     <link type="text/css" rel="stylesheet" href="../dist/VueGridLib.css" />
 
   </head>
   <body>
-    <script src="../dist/VueGridLib.umd.js"></script>
 
-    <script>
-    console.log(VueCustomGridLib);
-    console.log(VueCustomGridLib.VueCustomGrid);
-    </script>
-
-    <iframe id="inlineFrameExample"
-      title="Inline Frame Example"
-      width="300"
-      height="200"
-      src="../dist/VueCustomGridLib.umd.js">
-    </iframe>
-
-
-    <div class="container-fluid">
 
     	<div id="app-view-model">
-    	  <vue-custom-grid :fetchurl="fetchurl" :bus="bus" :language="language" :itemsperpage="itemsperpage" :actions="actions" :actionplus="actionplus">
+    	  <vue-custom-grid :restitle="restitle" :fetchurl="fetchurl" :bus="bus" :language="language" :itemsperpage="itemsperpage" :actions="actions" :actionplus="actionplus">
     	  </vue-custom-grid>
         <vue-pagination :bus="bus" :limit="10" :display="previous-numbers-next"></vue-pagination>
     	</div>
-    </div>
 
-      <script type="module">
-          //import {VueCustomGrid, VuePagination} from '../dist/VueCustomGridLib.umd.js'
-          //alert("VueCustomGrid");
-          //console.log(VueCustomGrid);
-      </script>
 
     <script>
-
-    //Vue.use(BootstrapVue);
 
       var gridData = [];
       var gridColumns = [];
       var gridHeaders = [];
       var gridHideColumns=["id_owner","flyer_txt","flyer_img","id_entry","id_version","path", "isfav", "lesson", "can_form"];
       var actions =[
-      {glyphiconclass:'mdi mdi-thumb-up',buttonclass:'btn btn-sm btn-info',onclick:"launchBlank('http://www.aol.com?with-my-param=$members')"},
-      {glyphiconclass:'mdi mdi-pencil',buttonclass:'btn btn-sm btn-info',onclick:"goTo('http://www.aol.com?with-my-id=$id')"},
-      {glyphiconclass:'mdi mdi-account',buttonclass:'btn btn-sm btn-info',onclick:"launchModal('Users attached to the role','/users/role/form/$id/membership')"},
-      {glyphiconclass:'mdi mdi-camera-iris',buttonclass:'btn btn-sm btn-success',onclick:"launchModal('Copy or move','/docws/form/$id/$id/transfer')"},
-      {glyphiconclass:'mdi mdi-delete-outline',buttonclass:'btn btn-sm btn-warning',onclick:"launchModal('Delete the role', '/docws/form/$id/$id/$id/delete')"}
+      {glyphiconclass:'mdi mdi-18px mdi-thumb-up',buttonclass:'btn-icon info',onclick:"launchBlank('http://www.aol.com?with-my-param=$members')"},
+      {glyphiconclass:'mdi mdi-18px mdi-pencil',buttonclass:'btn-icon info',onclick:"goTo('http://www.aol.com?with-my-id=$id')"},
+      {glyphiconclass:'mdi mdi-18px mdi-account',buttonclass:'btn-icon info',onclick:"launchModal('Users attached to the role','/users/role/form/$id/membership')"},
+      {glyphiconclass:'mdi mdi-18px mdi-camera-iris',buttonclass:'btn-icon success',onclick:"launchModal('Copy or move','/docws/form/$id/$id/transfer')"},
+      {glyphiconclass:'mdi mdi-18px mdi-delete-outline',buttonclass:'btn-icon warning',onclick:"launchModal('Delete the role', '/docws/form/$id/$id/$id/delete')"}
       ];
+
+      var jsonData = {
+        "dataColumns": ["id", "title", "description", "activated", "created_at", "updated_at", "members"], "dataRows": [{ "0": 1, "1": "Admin", "2": "Can administer the whole system", "3": true, "4": "11/08/2019", "5": "11/08/2019", "6": 2 }, { "0": 6, "1": "Atelier", "2": "Chefs d'alleirs et Directeur technique", "3": true, "4": "06/10/2019", "5": "06/10/2019", "6": 1 }, { "0": 4, "1": "Contributors", "2": "Contributors can initiate a document.", "3": true, "4": "23/09/2019", "5": "23/09/2019", "6": 2 }, { "0": 5, "1": "Managers", "2": "We have good ones", "3": true, "4": "25/09/2019", "5": "25/09/2019", "6": 2 }, { "0": 8, "1": "Marketing", "2": "", "3": true, "4": "07/10/2019", "5": "07/10/2019", "6": 2 }, { "0": 3, "1": "Users", "2": "Standard users", "3": true, "4": "11/08/2019", "5": "11/08/2019", "6": 3 }, { "0": 7, "1": "Sells", "2": "", "3": true, "4": "07/10/2019", "5": "07/10/2019", "6": 2 }, { "0": 2, "1": "Visitors", "2": "Users from invitation", "3": true, "4": "11/08/2019", "5": "11/08/2019", "6": 0 }, { "0": 15, "1": "Back-Office employees", "2": "", "3": true, "4": "25/09/2019", "5": "25/09/2019", "6": 2 },
+        { "0": 16, "1": "Security", "2": "Do not mess with them", "3": true, "4": "25/09/2019", "5": "25/09/2019", "6": 2 },
+        { "0": 18, "1": "Accountancy", "2": "", "3": true, "4": "25/09/2019", "5": "25/09/2019", "6": 2 },
+        { "0": 5, "1": "Geeks", "2": "Can solve any problems", "3": true, "4": "25/09/2019", "5": "25/09/2019", "6": 2 }]
+      };
 
       //var actionsColumns = {orig_file_name: actionsFileName};
       var EventBus = new Vue();
@@ -72,12 +51,16 @@
           VuePagination: VueGridLib.VuePagination
         },
         data: {
-          fetchurl: 'http://localhost:8080/jsonnoauth/get-users-roles',
+          restitle: 'Demo grid for VueCustomGrid (C) 2020 David Lebret',
+          //fetchurl: 'http://localhost:8080/jsonnoauth/get-users-roles',
+          feed: jsonData,
           hcolumns: ["activated"],
           language: 'fr',
           actions: actions,
           actionplus: "goTo('/users/role/0/form')",
           itemsperpage: 3,
+          actions: actions,
+          options: {ChooseFilter: true, ChooseDisplay: true, ChooseFields: true},
           bus: EventBus
       	  //gridHeaders: gridHeaders,
           //gridColumns: gridColumns,
@@ -85,7 +68,7 @@
           //translator: translator,
       	  //translatorService: "/json/get-translation?language=",
           //gridData: gridData,
-          //actions: actions,
+
           //actionPlus: "launchModal('{{ trs .L "Upload"}}','/form/get-upload-form?idEntry=$id_entry')",
           //actionSave: "alertMeMe()",
           //actionsColumns: actionsColumns,
@@ -93,8 +76,7 @@
           //startRow: 0,
           //page:1,
           //license: 'ADF454EE',
-          //options: {ChooseFilter: true, ChooseDisplay: true, ChooseFields: true},
-          //bus: EventBus
+
         }
       });
 

@@ -1,18 +1,18 @@
 <div>
-    <div id="paginator" v-show="previous || next">
+    <div id="paginator" v-show="previous || next" :style="options.Style">
         <nav >
-            <ul>
-                <li v-show="previous" style="float:left">
-                    <a @click.prevent="paginate('previous')" class="page-link rounded-pill" href="#">
+            <ul class="paginator">
+                <li v-show="previous">
+                    <a @click.prevent="paginate('previous')" href="#">
                         &lt; Previous
                     </a>
                 </li>
-                <li class="rounded-pill" v-for="(item, index) in paginatorArray" >
-                    <a @click.prevent="pageChanged(item)" href="#" class="page-link rounded-pill p-2">&nbsp;&nbsp;{{item}}&nbsp;&nbsp;</a>
+                <li v-for="(item, index) in paginatorArray" >
+                    <a @click.prevent="pageChanged(item)" href="#" :class="getActiveClass(item)">&nbsp;&nbsp;{{item}}&nbsp;&nbsp;</a>
                 </li>
 
-                <li v-show="next" style="float:right">
-                    <a @click.prevent="paginate('next')" class="page-link rounded-pill" href="#">
+                <li v-show="next">
+                    <a @click.prevent="paginate('next')" href="#">
                         Next &gt;
                     </a>
                 </li>

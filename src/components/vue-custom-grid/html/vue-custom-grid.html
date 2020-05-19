@@ -3,64 +3,71 @@
   <link href="http://cdn.materialdesignicons.com/5.0.45/css/materialdesignicons.min.css" rel="stylesheet">
 
     <!-- Modal for viewing options -->
-    <div id="myGridModal" class="modal fade" role="dialog">
-      <div class="modal-dialog">
-
+    <div id="myGridModal" class="modal">
         <!-- Modal content-->
         <div class="modal-content">
           <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h4 class="modal-title">Modal Header</h4>
+            <button type="button" class="modal-btn-close" v-on:click="closeModal()">&times;</button>
+            <h4 class="modal-title"><span :style="options.Style">Grid columns selection</span></h4>
           </div>
           <div class="modal-body">
-            <ul class="list-group" id="selectHeaders">
+            <ul class="list-group">
 
-              <li v-for="(key,num) in richHeaders" class="list-group-item"><input type="checkbox" class="selectClass" :value="num">&nbsp; {{ translate(key["datanamecol"]) }}</li>
+              <li v-for="(key,num) in richHeaders" class="list-group-item">
+                <input type="checkbox" :value="num" class="selectClass" name="selectHeaders"><span :style="options.Style">&nbsp; {{ translate(key["datanamecol"]) }}</span>
+              </li>
 
             </ul>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" v-on:click="adaptHeaders()">Validate</button><button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn-action primary" v-on:click="adaptHeaders();closeModal();">Validate</button><button type="button" class="btn-action secondary" v-on:click="closeModal()">Close</button>
           </div>
         </div>
-
-      </div>
     </div>
     <!-- End Modal -->
-     <div style="float: left;" v-html="restitle"></div><div style="float: left;" v-html="page"></div>
-     <div style="float: right;">
-        <form id="search"><span v-if="options.ChooseFilter" >Filter <input type="text" width="8" name="query" v-model="searchTerm" /></span>&nbsp;
-        </form>
+
+    <div style="width:95%;">
+      <div :style="options.Style">
+         <div style="float: left;" v-html="restitle"></div>
+         <div style="float: right; margin-bottom: 10px">
+            <form id="search"><span v-if="options.ChooseFilter" >Filter <input type="text" class="input-discrete" name="query" v-model="searchTerm" /></span>&nbsp;
+            </form>
+          </div>
+      </div><br/>
+
+        <table class="visual" width="100%" :style="options.Style">
+          <thead>
+            <tr>
+              <th v-for="(key,num) in filteredHeaders">
+                {{ translate(key["datanamecol"]) }}<span :id="'sortGlyph' + key['dataindexcol']" style="float:right" class="mdi mdi-chevron-up-circle-outline" v-on:click="sortRowsBy(key['dataindexcol'])"></span>
+              </th>
+              <th v-if="actions">
+                <span class="mdi mdi-cog-outline" v-if="options.ChooseFields" v-on:click="showModal()">&nbsp;</span>
+                <span class="mdi mdi-content-save-settings" v-if="actionSave" :onclick="makeLinkSave()">&nbsp;</span>
+                <span class="mdi mdi-plus-box-multiple" v-if="actionPlus" :onclick="makeLinkPlus()">&nbsp;</span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="(entry, num) in filteredData" :data-id="entry[0]">
+
+              <td v-for="key in filteredColumns">
+                {{ renderCell(key, entry) }}
+                <div v-html="renderHtml(key, entry)"></div>
+                <div style="display:inline" v-for="action in getActionsColumn(key)" :id="actionsColumn + key">
+                  <vue-action :def="action" :index="num" :target="entry[0]" :dataunit="JSON.stringify(filteredData[num])" :datacolumns="headers"></vue-action>
+                </div>
+
+              </td>
+
+              <td v-if="actions" width="200px">
+                <div style="display:inline" v-for="action in actions">
+                  <vue-action :def="action" :index="num" :target="entry[0]" :dataunit="JSON.stringify(filteredData[num])" :datacolumns="headers"></vue-action>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div v-html="appmessage"></div>
       </div>
-      <table class="table table-striped table-bordered">
-        <thead>
-          <tr>
-            <th v-for="(key,num) in filteredHeaders">
-              {{ translate(key["datanamecol"]) }}<span :id="'sortGlyph' + key['dataindexcol']" style="float:right" class="mdi mdi-chevron-up-circle-outline" v-on:click="sortRowsBy(key['dataindexcol'])"></span>
-            </th>
-            <th v-if="actions">
-        <span class="mdi mdi-cog-outline" v-if="options.ChooseFields" v-on:click="showModal()">&nbsp;</span><span class="glyphicon glyphicon-save" v-if="actionsave" :onclick="makeLinkSave()"></span>&nbsp;<span v-if="actionplus"><button :onclick="makeLinkPlus()"><span class="mdi mdi-plus-box-multiple"></span></button></span></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="(entry, num) in filteredData" :data-id="entry[0]">
-
-            <td v-for="key in filteredColumns">
-              {{ renderCell(key, entry) }}
-              <div v-html="renderHtml(key, entry)"></div>
-              <div style="display:inline" v-for="action in getActionsColumn(key)" :id="actionsColumn + key">
-                <vue-action :def="action" :index="num" :target="entry[0]" :dataunit="JSON.stringify(filteredData[num])" :datacolumns="headers"></vue-action>
-              </div>
-
-            </td>
-
-            <td v-if="actions" width="200px">
-              <div style="display:inline" v-for="action in actions">
-                <vue-action :def="action" :index="num" :target="entry[0]" :dataunit="JSON.stringify(filteredData[num])" :datacolumns="headers"></vue-action>
-              </div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      <div v-html="appmessage"></div>
 </div>

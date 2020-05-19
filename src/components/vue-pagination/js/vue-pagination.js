@@ -3,8 +3,12 @@ window.$ = jquery;
 
 export default {
   name: "VuePagination",
-  props: ['limit', 'display', 'bus'],
-
+  props: {
+    limit: Number,
+    options: Object,
+    verbose: Boolean,
+    bus: Object
+  },
   data() {
     return {
       page: 1,
@@ -17,8 +21,18 @@ export default {
 
   created: function() {
 
+    //set default value
+    if (this.options == undefined) {
+      this.options = {
+        Style: "",
+      };
+    }
+    if (this.options.Style == "") {
+      this.options.Style = "font-family: Arial, Helvetica, sans-serif; font-size: 16px;";
+    }
+
     this.$on('updatePaginator', function() {
-      console.log('(vue-paginator) ... update Paginator');
+      this.log('(vue-paginator) ... update Paginator');
       if (this.maxPage == 1) {
         this.next = false;
         this.previous = false;
@@ -41,8 +55,8 @@ export default {
     }.bind(this));
 
 
-    this.bus.$on('maxPage', function(maxpage) {
-      console.log('(vue-paginator)... old max page:' + this.maxPage + '... new max page:' + maxpage);
+    this.bus.$on('vue-custom-grid:maxPage', function(maxpage) {
+      this.log('(vue-paginator)... old max page:' + this.maxPage + '... new max page:' + maxpage);
       if (this.maxPage != maxpage) {
         this.maxPage = maxpage;
         this.makePaginator();
@@ -91,7 +105,7 @@ export default {
     },
 
     makePaginator() {
-      console.log('(vue-paginator) ... makePaginator');
+      this.log('(vue-paginator) ... makePaginator');
       this.paginatorArray = [];
       var tempArray = [];
       if (this.limit > 3 && this.maxPage > 6) {
@@ -109,8 +123,7 @@ export default {
         }
 
         if (makeafter && ((this.page + 2) > this.maxPage)) {
-          //this.paginatorArray.push(1);
-          //this.paginatorArray.push(2);
+
           tempArray.push(1);
           tempArray.push(2);
         }
@@ -146,7 +159,7 @@ export default {
       } else {
 
         for (var i = 1; i <= this.maxPage; i++) {
-          //this.paginatorArray.push(i);
+
           tempArray.push(i);
         }
         this.paginatorArray = tempArray;
@@ -156,10 +169,17 @@ export default {
     },
 
     getActiveClass(numberpager) {
-      console.log("(vue-paginator) numberpager:" + numberpager + " , this.page:" + this.page + "so..." + (numberpager == this.page));
-      return (numberpager == this.page) ? "paginator-active" : "paginator-unactive";
-      //return (numberpager == this.page);
-    }
+      this.log("(vue-paginator) numberpager:" + numberpager + " , this.page:" + this.page + "so..." + (numberpager == this.page));
+      return (numberpager == this.page) ? "page-active" : "page-unactive";
+
+    },
+
+    log: function(message) {
+      if (this.verbose) {
+        console.log(message);
+      }
+
+    },
 
   }
 };

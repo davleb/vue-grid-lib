@@ -13296,8 +13296,8 @@ var component = normalizeComponent(
 
 /* harmony default export */ var vue_action = (component.exports);
 // CONCATENATED MODULE: /usr/local/lib/node_modules/@vue/cli-service/node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"b3ebfbf2-vue-loader-template"}!/usr/local/lib/node_modules/@vue/cli-service/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./src/components/vue-custom-grid/html/vue-custom-grid.html?vue&type=template&id=7413ea5a&
-var vue_custom_gridvue_type_template_id_7413ea5a_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{attrs:{"id":"root"}},[_c('link',{attrs:{"href":"http://cdn.materialdesignicons.com/5.0.45/css/materialdesignicons.min.css","rel":"stylesheet"}}),_c('div',{staticClass:"modal fade",attrs:{"id":"myGridModal","role":"dialog"}},[_c('div',{staticClass:"modal-dialog"},[_c('div',{staticClass:"modal-content"},[_vm._m(0),_c('div',{staticClass:"modal-body"},[_c('ul',{staticClass:"list-group",attrs:{"id":"selectHeaders"}},_vm._l((_vm.richHeaders),function(key,num){return _c('li',{staticClass:"list-group-item"},[_c('input',{staticClass:"selectClass",attrs:{"type":"checkbox"},domProps:{"value":num}}),_vm._v(" "+_vm._s(_vm.translate(key["datanamecol"])))])}),0)]),_c('div',{staticClass:"modal-footer"},[_c('button',{staticClass:"btn btn-default",attrs:{"type":"button"},on:{"click":function($event){return _vm.adaptHeaders()}}},[_vm._v("Validate")]),_c('button',{staticClass:"btn btn-default",attrs:{"type":"button","data-dismiss":"modal"}},[_vm._v("Close")])])])])]),_c('div',{staticStyle:{"float":"left"},domProps:{"innerHTML":_vm._s(_vm.restitle)}}),_c('div',{staticStyle:{"float":"left"},domProps:{"innerHTML":_vm._s(_vm.page)}}),_c('div',{staticStyle:{"float":"right"}},[_c('form',{attrs:{"id":"search"}},[(_vm.options.ChooseFilter)?_c('span',[_vm._v("Filter "),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.searchTerm),expression:"searchTerm"}],attrs:{"type":"text","width":"8","name":"query"},domProps:{"value":(_vm.searchTerm)},on:{"input":function($event){if($event.target.composing){ return; }_vm.searchTerm=$event.target.value}}})]):_vm._e()])]),_c('table',{staticClass:"table table-striped table-bordered"},[_c('thead',[_c('tr',[_vm._l((_vm.filteredHeaders),function(key,num){return _c('th',[_vm._v(" "+_vm._s(_vm.translate(key["datanamecol"]))),_c('span',{staticClass:"mdi mdi-chevron-up-circle-outline",staticStyle:{"float":"right"},attrs:{"id":'sortGlyph' + key['dataindexcol']},on:{"click":function($event){return _vm.sortRowsBy(key['dataindexcol'])}}})])}),(_vm.actions)?_c('th',[(_vm.options.ChooseFields)?_c('span',{staticClass:"mdi mdi-cog-outline",on:{"click":function($event){return _vm.showModal()}}}):_vm._e(),(_vm.actionsave)?_c('span',{staticClass:"glyphicon glyphicon-save",attrs:{"onclick":_vm.makeLinkSave()}}):_vm._e(),_vm._v(" "),(_vm.actionplus)?_c('span',[_c('button',{attrs:{"onclick":_vm.makeLinkPlus()}},[_c('span',{staticClass:"mdi mdi-plus-box-multiple"})])]):_vm._e()]):_vm._e()],2)]),_c('tbody',_vm._l((_vm.filteredData),function(entry,num){return _c('tr',{attrs:{"data-id":entry[0]}},[_vm._l((_vm.filteredColumns),function(key){return _c('td',[_vm._v(" "+_vm._s(_vm.renderCell(key, entry))+" "),_c('div',{domProps:{"innerHTML":_vm._s(_vm.renderHtml(key, entry))}}),_vm._l((_vm.getActionsColumn(key)),function(action){return _c('div',{staticStyle:{"display":"inline"},attrs:{"id":_vm.actionsColumn + key}},[_c('vue-action',{attrs:{"def":action,"index":num,"target":entry[0],"dataunit":JSON.stringify(_vm.filteredData[num]),"datacolumns":_vm.headers}})],1)})],2)}),(_vm.actions)?_c('td',{attrs:{"width":"200px"}},_vm._l((_vm.actions),function(action){return _c('div',{staticStyle:{"display":"inline"}},[_c('vue-action',{attrs:{"def":action,"index":num,"target":entry[0],"dataunit":JSON.stringify(_vm.filteredData[num]),"datacolumns":_vm.headers}})],1)}),0):_vm._e()],2)}),0)]),_c('div',{domProps:{"innerHTML":_vm._s(_vm.appmessage)}})])}
-var vue_custom_gridvue_type_template_id_7413ea5a_staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"modal-header"},[_c('button',{staticClass:"close",attrs:{"type":"button","data-dismiss":"modal"}},[_vm._v("×")]),_c('h4',{staticClass:"modal-title"},[_vm._v("Modal Header")])])}]
+var vue_custom_gridvue_type_template_id_7413ea5a_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{attrs:{"id":"root"}},[_c('link',{attrs:{"href":"http://cdn.materialdesignicons.com/5.0.45/css/materialdesignicons.min.css","rel":"stylesheet"}}),_c('div',{staticClass:"modal",attrs:{"id":"myGridModal"}},[_c('div',{staticClass:"modal-content"},[_c('div',{staticClass:"modal-header"},[_c('button',{staticClass:"modal-btn-close",attrs:{"type":"button"},on:{"click":function($event){return _vm.closeModal()}}},[_vm._v("×")]),_c('h4',{staticClass:"modal-title"},[_c('span',{style:(_vm.options.Style)},[_vm._v("Grid columns selection")])])]),_c('div',{staticClass:"modal-body"},[_c('ul',{staticClass:"list-group"},_vm._l((_vm.richHeaders),function(key,num){return _c('li',{staticClass:"list-group-item"},[_c('input',{staticClass:"selectClass",attrs:{"type":"checkbox","name":"selectHeaders"},domProps:{"value":num}}),_c('span',{style:(_vm.options.Style)},[_vm._v(" "+_vm._s(_vm.translate(key["datanamecol"])))])])}),0)]),_c('div',{staticClass:"modal-footer"},[_c('button',{staticClass:"btn-action primary",attrs:{"type":"button"},on:{"click":function($event){_vm.adaptHeaders();_vm.closeModal();}}},[_vm._v("Validate")]),_c('button',{staticClass:"btn-action secondary",attrs:{"type":"button"},on:{"click":function($event){return _vm.closeModal()}}},[_vm._v("Close")])])])]),_c('div',{staticStyle:{"width":"95%"}},[_c('div',{style:(_vm.options.Style)},[_c('div',{staticStyle:{"float":"left"},domProps:{"innerHTML":_vm._s(_vm.restitle)}}),_c('div',{staticStyle:{"float":"right","margin-bottom":"10px"}},[_c('form',{attrs:{"id":"search"}},[(_vm.options.ChooseFilter)?_c('span',[_vm._v("Filter "),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.searchTerm),expression:"searchTerm"}],staticClass:"input-discrete",attrs:{"type":"text","name":"query"},domProps:{"value":(_vm.searchTerm)},on:{"input":function($event){if($event.target.composing){ return; }_vm.searchTerm=$event.target.value}}})]):_vm._e()])])]),_c('br'),_c('table',{staticClass:"visual",style:(_vm.options.Style),attrs:{"width":"100%"}},[_c('thead',[_c('tr',[_vm._l((_vm.filteredHeaders),function(key,num){return _c('th',[_vm._v(" "+_vm._s(_vm.translate(key["datanamecol"]))),_c('span',{staticClass:"mdi mdi-chevron-up-circle-outline",staticStyle:{"float":"right"},attrs:{"id":'sortGlyph' + key['dataindexcol']},on:{"click":function($event){return _vm.sortRowsBy(key['dataindexcol'])}}})])}),(_vm.actions)?_c('th',[(_vm.options.ChooseFields)?_c('span',{staticClass:"mdi mdi-cog-outline",on:{"click":function($event){return _vm.showModal()}}}):_vm._e(),(_vm.actionSave)?_c('span',{staticClass:"mdi mdi-content-save-settings",attrs:{"onclick":_vm.makeLinkSave()}}):_vm._e(),(_vm.actionPlus)?_c('span',{staticClass:"mdi mdi-plus-box-multiple",attrs:{"onclick":_vm.makeLinkPlus()}}):_vm._e()]):_vm._e()],2)]),_c('tbody',_vm._l((_vm.filteredData),function(entry,num){return _c('tr',{attrs:{"data-id":entry[0]}},[_vm._l((_vm.filteredColumns),function(key){return _c('td',[_vm._v(" "+_vm._s(_vm.renderCell(key, entry))+" "),_c('div',{domProps:{"innerHTML":_vm._s(_vm.renderHtml(key, entry))}}),_vm._l((_vm.getActionsColumn(key)),function(action){return _c('div',{staticStyle:{"display":"inline"},attrs:{"id":_vm.actionsColumn + key}},[_c('vue-action',{attrs:{"def":action,"index":num,"target":entry[0],"dataunit":JSON.stringify(_vm.filteredData[num]),"datacolumns":_vm.headers}})],1)})],2)}),(_vm.actions)?_c('td',{attrs:{"width":"200px"}},_vm._l((_vm.actions),function(action){return _c('div',{staticStyle:{"display":"inline"}},[_c('vue-action',{attrs:{"def":action,"index":num,"target":entry[0],"dataunit":JSON.stringify(_vm.filteredData[num]),"datacolumns":_vm.headers}})],1)}),0):_vm._e()],2)}),0)]),_c('div',{domProps:{"innerHTML":_vm._s(_vm.appmessage)}})])])}
+var vue_custom_gridvue_type_template_id_7413ea5a_staticRenderFns = []
 
 
 // CONCATENATED MODULE: ./src/components/vue-custom-grid/html/vue-custom-grid.html?vue&type=template&id=7413ea5a&
@@ -13317,27 +13317,27 @@ var jquery_default = /*#__PURE__*/__webpack_require__.n(jquery);
 
 window.$ = jquery_default.a;
 
-__webpack_require__("7c2b");
 /* harmony default export */ var vue_custom_gridvue_type_script_lang_js_ = ({
   name: 'VueCustomGrid',
   components: {
     VueAction: vue_action
   },
   props: {
-    feed: Array,
+    feed: {},
     fetchurl: String,
     dateformat: String,
     restitle: String,
 
     language: String,
-    translator: Array,
+    translator: [],
     translatorservice: String,
 
     actions: Array,
     actionscolumns: Object,
-    actionplus: String,
-    actionsave: String,
+    actionplus: "",
+    actionsave: "",
 
+    verbose: false,
     customrender: Object,
     itemsperpage: Number,
     searchquery: String,
@@ -13346,20 +13346,23 @@ __webpack_require__("7c2b");
     options: Object,
     bus: Object
 
+
   },
 
   data: function() {
     return {
-      headers: Array,
-      hheaders: Array,
-      columns: Array,
-      hcolumns: Array,
+      headers: [],
+      hheaders: [],
+      columns: [],
+      hcolumns: [],
+      rows: [],
       page: 1,
       maxPage: 1,
       ordererBy: "",
       orderedAsc: true,
       searchTerm: "",
-      appmessage: ""
+      appmessage: "",
+      fontcss: ""
     }
   },
   created: function() {
@@ -13369,13 +13372,23 @@ __webpack_require__("7c2b");
       this.options = {
         ChooseFilter: true,
         ChooseDisplay: true,
-        ChooseFields: true
+        ChooseFields: true,
+        Style: "",
       };
     }
+    if (this.options.Style == "") {
+      this.options.Style = "font-family: Arial, Helvetica, sans-serif;";
+    }
 
-    //fetch data from url
-    this.fetchData();
-    //this.simulFetch();
+    //fetch data from url only if feed is empty array
+    if (this.feed == {}) {
+      this.log("(vue-custom-grid)...load data from url");
+      this.fetchDataUrl();
+    } else {
+      this.log("(vue-custom-grid)...load data from local json data");
+      //this.loadData();
+      this.simulFetch();
+    }
 
 
   },
@@ -13384,16 +13397,17 @@ __webpack_require__("7c2b");
     comp.orderedBy = comp.sortedby;
     comp.orderedAsc = comp.sortedasc;
 
-    comp.maxPage = Math.ceil(comp.feed.length / comp.itemsperpage);
-    console.log('max page calculated is : ' + comp.maxPage);
-    comp.bus.$emit('maxPage', comp.maxPage);
+    comp.maxPage = Math.ceil(comp.rows.length / comp.itemsperpage);
+
+    comp.bus.$emit('vue-custom-grid:maxPage', comp.maxPage);
+    comp.log('(vue-custom-grid)... max page is:' + comp.maxPage);
 
     comp.bus.$on('vue-paginator:pageUpdated', function(page) {
-      console.log('(vue-table)... page number triggered:' + page);
+      comp.log('(vue-custom-grid)... page number triggered:' + page);
 
       comp.page = page;
-      console.log('(vue-table)... this is a registered version:' + comp.$parent.license);
-      //comp.$parent.logPaginate(page);
+      comp.log('(vue-custom-grid)... this is a registered version:' + comp.$parent.license);
+
     }.bind(this));
 
   },
@@ -13401,7 +13415,7 @@ __webpack_require__("7c2b");
   computed: {
     filteredData() {
 
-      if (this.feed.length == 0) {
+      if (this.rows.length == 0) {
         this.appmessage = "Sorry, there is no result found.";
       } else {
         this.appmessage = "";
@@ -13411,33 +13425,28 @@ __webpack_require__("7c2b");
         return;
       }
 
-      console.log(this.searchTerm);
-      console.log("SORTED BY " + this.orderedBy + " " + this.orderedAsc);
-
-      var prop = this.orderedBy;
-      var asc = this.orderedAsc;
+      var oBy = this.orderedBy;
+      var oAsc = this.orderedAsc;
 
       var isDate = false;
 
-      if (prop !== "" && prop != undefined) {
-        isDate = this.checkDateType(prop);
-        console.log("ISDATE ===" + isDate);
+      if (oBy !== "" && oBy != undefined) {
+        isDate = this.checkDateType(oBy);
+
       }
 
-      var filteredFeed = this.feed;
-      console.log("DEBUT");
-      console.log(filteredFeed);
+      var filteredRows = this.rows;
 
-      if (prop !== "" && prop != undefined) {
-        filteredFeed = filteredFeed.sort(function(a, b) {
-          if (asc) {
+      if (oBy !== "" && oBy != undefined) {
+        filteredRows = filteredRows.sort(function(a, b) {
+          if (oAsc) {
 
             if (!isDate) {
               //return (a[prop] > b[prop]) ? 1 : ((a[prop] < b[prop]) ? -1 : 0);
-              return a[prop].toString().localeCompare(b[prop].toString());
+              return a[oBy].toString().localeCompare(b[oBy].toString());
             } else {
-              var date1 = moment_default()(a[prop], "DD-MM-YYYY");
-              var date2 = moment_default()(b[prop], "DD-MM-YYYY");
+              var date1 = moment_default()(a[oBy], "DD-MM-YYYY");
+              var date2 = moment_default()(b[oBy], "DD-MM-YYYY");
               return (date1 > date2 ? 1 : date1 < date2 ? -1 : 0);
             }
 
@@ -13445,10 +13454,10 @@ __webpack_require__("7c2b");
 
             if (!isDate) {
               //return (b[prop] > a[prop]) ? 1 : ((b[prop] < a[prop]) ? -1 : 0);
-              return b[prop].toString().localeCompare(a[prop].toString());
+              return b[oBy].toString().localeCompare(a[oBy].toString());
             } else {
-              var date1 = moment_default()(a[prop], "DD-MM-YYYY");
-              var date2 = moment_default()(b[prop], "DD-MM-YYYY");
+              var date1 = moment_default()(a[oBy], "DD-MM-YYYY");
+              var date2 = moment_default()(b[oBy], "DD-MM-YYYY");
               return (date2 > date1 ? 1 : date2 < date1 ? -1 : 0);
             }
           }
@@ -13459,51 +13468,49 @@ __webpack_require__("7c2b");
       //if server side pagination, only filter for first insertion
       //if (this.page == 1){
       if (true) {
-        console.log("AVANT");
-        console.log(filteredFeed);
-        filteredFeed = filteredFeed.slice((this.itemsperpage) * (this.page - 1), (this.itemsperpage) * (this.page));
-        console.log("APRES");
-        console.log(filteredFeed);
+        filteredRows = filteredRows.slice((this.itemsperpage) * (this.page - 1), (this.itemsperpage) * (this.page));
       }
 
       if (this.searchTerm != "") {
         var st = this.searchTerm;
-        filteredFeed = this.feed.filter(item => {
+        filteredRows = this.rows.filter(item => {
           var found = false;
-          //var itemValues = Object.values(item);
+
           for (var itemProp in item) {
-            console.log(item[itemProp]);
             var itemValue = item[itemProp];
             if (typeof (itemValue) == "string" && itemValue.toLowerCase().indexOf(st.toLowerCase()) > -1) {
               found = true;
-              console.log("found!!!");
             }
           }
           return found;
-          //return item[1].toLowerCase().indexOf(this.searchTerm.toLowerCase()) > -1
+
         });
       };
 
-      return filteredFeed;
+      return filteredRows;
     },
     filteredColumns() {
+
       var fc = [];
       var comp = this;
+      comp.log("............filtering columns");
+      comp.log(comp.hcolumns);
       comp.headers.forEach(function(col, index) {
         if ((comp.hcolumns).indexOf(col) == -1) {
           fc.push(index);
         };
       });
+      comp.log(fc);
       return fc;
     },
 
     filteredHeaders() {
       var fh = [];
       var comp = this;
-      comp.hcolumns = ['activated'];
-      console.log("HCOLUMNS====");
-      console.log(JSON.stringify(comp.hcolumns));
-      console.log("HCOLUMNS====");
+      //comp.hcolumns = ['activated'];
+
+      comp.log("............filtering headers");
+      comp.log(comp.hcolumns);
 
       comp.headers.forEach(function(col, index) {
         if ((comp.hcolumns).indexOf(col) == -1) {
@@ -13513,6 +13520,7 @@ __webpack_require__("7c2b");
           });
         };
       });
+      comp.log(fh);
       return fh;
     },
 
@@ -13542,10 +13550,10 @@ __webpack_require__("7c2b");
   },//end filter
 
   methods: {
-    fetchData: function() {
+    fetchDataUrl: function() {
       var comp = this;
       comp.columns = [];
-      //console.log(paramSearch);
+
       $.ajax({
         url: comp.fetchurl,
         type: 'GET',
@@ -13553,30 +13561,37 @@ __webpack_require__("7c2b");
         //headers: { 'X-Requested-With': 'XMLHttpRequest' },
         contentType: "application/json; charset=utf-8",
         dataType: 'json',
-        //data: JSON.stringify(paramSearch),
+
         timeout: 3000,
         async: false,
         success: function(dataresp) {
-          console.log(JSON.stringify(dataresp));
-          //var self = this;
-          //console.log(JSON.parse(data));
+
           $.each((dataresp["dataRows"])[0], function(key, val) {
-            console.log(key);
             comp.columns.push(key);
           });
           comp.headers = dataresp["dataColumns"];
-          comp.feed = dataresp["dataRows"];
+          comp.rows = dataresp["dataRows"];
         },
         error: function(dataresp) {
-          console.log('this is a failure !!!!!!!!!!');
-          alert('this is a failure !!!!!!!!');
+          alert('Unable to fetch the url for data ? is the server available ?');
         }
       });
+    },
+    loadData: function() {
+      var comp = this;
+      comp.columns = [];
+
+      $.each((comp.feed["dataRows"])[0], function(key, val) {
+        comp.columns.push(key);
+      });
+
+      comp.headers = comp.feed["dataColumns"];
+      comp.rows = comp.feed["dataRows"];
+
     },
     renderCell: function(key, entry) {
       var comp = this;
       if (comp.customrender != null && comp.customrender[key] != null) {
-        //return('zo'+entry[key]);
         return '';
       } else {
         return (entry[key]);
@@ -13591,14 +13606,13 @@ __webpack_require__("7c2b");
         return '';
       }
     },
-    checkDateType: function(prop) {
+    checkDateType: function(oBy) {
       var testDate = true;
-      var maxLines = Math.min(100, this.feed.length);
+      var maxLines = Math.min(100, this.rows.length);
       for (var i = 0; i < maxLines; i++) {
-        var testString = this.feed[i][prop];
+        var testString = this.rows[i][oBy];
 
         if (!moment_default()(testString, this.dateformat, true).isValid()) {
-          console.log("TESTSTRING" + this.dateformat + "====" + testString);
           testDate = false;
           break;
         }
@@ -13611,7 +13625,6 @@ __webpack_require__("7c2b");
       var comp = this;
 
       if (comp.language != null && comp.translator == null) {
-        console.log("TRANSLATOR IS NULL");
         comp.getTranslator(comp.language);
       }
 
@@ -13641,19 +13654,19 @@ __webpack_require__("7c2b");
         timeout: 3000,
         async: true,
         success: function(data) {
-          console.log(data);
+
           data.forEach(function(col, index) {
             var itemKeyTranslated = {};
             if (col != "Translation not found") {
               itemKeyTranslated[language] = col;
               comp.translator[comp.headers[index]] = itemKeyTranslated;
             } else {
-              console.log(comp.headers[index]);
+
               itemKeyTranslated[language] = comp.capitalizeFirstLetter(comp.headers[index]);
               comp.translator[comp.headers[index]] = itemKeyTranslated;
             }
           });
-          console.log(comp.translator);
+
         }
       });
     },
@@ -13680,32 +13693,18 @@ __webpack_require__("7c2b");
     getRowValueField(row, field) {
       var col = getColByField(field)
       var fieldValue = data[row][col]
-      console.log(fieldValue);
 
     },
     //future
     getRowValueCol(row, col) {
       var colValue = data[row][col]
-      console.log(colValue);
+
     },
 
     sortRowsBy(num) {
-      //where reorder, restart at page 1
-
-      //this.$bus.$emit('pageChanged',this.page);
+      //when sort, should restart at page 1
       var asc = true;
-      // this.sortedby = num;
-      //
-      // if (this.sortedasc == undefined) {
-      //   asc = true
-      // } else {
-      //   //inverse order
-      //   if (num == this.sortedby) {
-      //     this.sortedasc = !this.sortedasc;
-      //   }
-      //   asc = this.sortedasc;
-      // }
-
+      this.page = 1;
       this.orderedBy = num;
 
       if (this.orderedAsc == undefined) {
@@ -13723,12 +13722,10 @@ __webpack_require__("7c2b");
         $("#sortGlyph" + num).attr('class', 'mdi mdi-chevron-up-circle-outline');
       }
 
-      console.log("change the order of" + num);
     },
 
     makeLinkPlus: function() {
       var comp = this;
-      console.log("seize the :" + comp.actionplus);
       return "jQuery()." + comp.actionplus;
     },
 
@@ -13738,36 +13735,48 @@ __webpack_require__("7c2b");
     },
 
     showModal: function() {
-      $('#myGridModal').modal('show');
+      var modal = document.getElementById("myGridModal");
+      modal.style.display = "block";
+    },
+
+    closeModal: function() {
+      var modal = document.getElementById("myGridModal");
+      modal.style.display = "none";
     },
 
     adaptHeaders: function() {
 
+      var comp = this;
+      comp.hcolumns = [];
       //because find find does NOT return an array!
       var sHeaders = $(".selectClass:not(:checked)").toArray();
-      console.log(sHeaders);
 
-      var comp = this;
-      console.log(comp.headers);
-      comp.hcolumns = [];
-      console.log('empty hidden columns!!');
       sHeaders.forEach(function(elem, index) {
-        console.log('hide column:' + comp.headers[elem.value]);
         (comp.hcolumns).push((comp.headers)[elem.value]);
-
+        comp.log((comp.headers)[elem.value]);
       });
+    },
+    log: function(message) {
+      if (this.verbose) {
+        console.log(message);
+      }
+
     },
     simulFetch: function() {
       var comp = this;
       comp.columns = [];
-      var dataresp = { "dataColumns": ["id", "title", "description", "activated", "created_at", "updated_at", "members"], "dataRows": [{ "0": 1, "1": "Admin", "2": "Can administer the whole system", "3": true, "4": "11/08/2019", "5": "11/08/2019", "6": 2 }, { "0": 6, "1": "Atelier", "2": "Chefs d'alleirs et Directeur technique", "3": true, "4": "06/10/2019", "5": "06/10/2019", "6": 1 }, { "0": 4, "1": "Contributeurs", "2": "Chaque admin peut ajouter un utilisateur au groupe Contributeurs s'il juge celui-ci pertinent.", "3": true, "4": "23/09/2019", "5": "23/09/2019", "6": 2 }, { "0": 5, "1": "Direction", "2": "", "3": true, "4": "25/09/2019", "5": "25/09/2019", "6": 2 }, { "0": 8, "1": "Marketing", "2": "", "3": true, "4": "07/10/2019", "5": "07/10/2019", "6": 2 }, { "0": 3, "1": "Users", "2": "Standard users", "3": true, "4": "11/08/2019", "5": "11/08/2019", "6": 3 }, { "0": 7, "1": "Ventes", "2": "", "3": true, "4": "07/10/2019", "5": "07/10/2019", "6": 2 }, { "0": 2, "1": "Visitors", "2": "Users from invitation", "3": true, "4": "11/08/2019", "5": "11/08/2019", "6": 0 }] };
+      var dataresp = {
+        "dataColumns": ["id", "title", "description", "activated", "created_at", "updated_at", "members"], "dataRows": [{ "0": 1, "1": "Admin", "2": "Can administer the whole system", "3": true, "4": "11/08/2019", "5": "11/08/2019", "6": 2 }, { "0": 6, "1": "Atelier", "2": "Chefs d'alleirs et Directeur technique", "3": true, "4": "06/10/2019", "5": "06/10/2019", "6": 1 }, { "0": 4, "1": "Contributors", "2": "Contributors can initiate a document.", "3": true, "4": "23/09/2019", "5": "23/09/2019", "6": 2 }, { "0": 5, "1": "Managers", "2": "We have good ones", "3": true, "4": "25/09/2019", "5": "25/09/2019", "6": 2 }, { "0": 8, "1": "Marketing", "2": "", "3": true, "4": "07/10/2019", "5": "07/10/2019", "6": 2 }, { "0": 3, "1": "Users", "2": "Standard users", "3": true, "4": "11/08/2019", "5": "11/08/2019", "6": 3 }, { "0": 7, "1": "Sells", "2": "", "3": true, "4": "07/10/2019", "5": "07/10/2019", "6": 2 }, { "0": 2, "1": "Visitors", "2": "Users from invitation", "3": true, "4": "11/08/2019", "5": "11/08/2019", "6": 0 }, { "0": 15, "1": "Back-Office employees", "2": "", "3": true, "4": "25/09/2019", "5": "25/09/2019", "6": 2 },
+        { "0": 16, "1": "Security", "2": "Do not mess with them", "3": true, "4": "25/09/2019", "5": "25/09/2019", "6": 2 },
+        { "0": 18, "1": "Accountancy", "2": "", "3": true, "4": "25/09/2019", "5": "25/09/2019", "6": 2 },
+        { "0": 5, "1": "Geeks", "2": "Can solve any problems", "3": true, "4": "25/09/2019", "5": "25/09/2019", "6": 2 }]
+      };
       $.each((dataresp["dataRows"])[0], function(key, val) {
-        console.log(key);
         comp.columns.push(key);
       });
 
       comp.headers = dataresp["dataColumns"];
-      comp.feed = dataresp["dataRows"];
+      comp.rows = dataresp["dataRows"];
     }
 
   }//end methods
@@ -13801,7 +13810,7 @@ var vue_custom_grid_component = normalizeComponent(
 
 /* harmony default export */ var vue_custom_grid = (vue_custom_grid_component.exports);
 // CONCATENATED MODULE: /usr/local/lib/node_modules/@vue/cli-service/node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"b3ebfbf2-vue-loader-template"}!/usr/local/lib/node_modules/@vue/cli-service/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./src/components/vue-pagination/html/vue-pagination.html?vue&type=template&id=3db34528&
-var vue_paginationvue_type_template_id_3db34528_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.previous || _vm.next),expression:"previous || next"}],attrs:{"id":"paginator"}},[_c('nav',[_c('ul',[_c('li',{directives:[{name:"show",rawName:"v-show",value:(_vm.previous),expression:"previous"}],staticStyle:{"float":"left"}},[_c('a',{staticClass:"page-link rounded-pill",attrs:{"href":"#"},on:{"click":function($event){$event.preventDefault();return _vm.paginate('previous')}}},[_vm._v(" < Previous ")])]),_vm._l((_vm.paginatorArray),function(item,index){return _c('li',{staticClass:"rounded-pill"},[_c('a',{staticClass:"page-link rounded-pill p-2",attrs:{"href":"#"},on:{"click":function($event){$event.preventDefault();return _vm.pageChanged(item)}}},[_vm._v(" "+_vm._s(item)+" ")])])}),_c('li',{directives:[{name:"show",rawName:"v-show",value:(_vm.next),expression:"next"}],staticStyle:{"float":"right"}},[_c('a',{staticClass:"page-link rounded-pill",attrs:{"href":"#"},on:{"click":function($event){$event.preventDefault();return _vm.paginate('next')}}},[_vm._v(" Next > ")])])],2)])])])}
+var vue_paginationvue_type_template_id_3db34528_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.previous || _vm.next),expression:"previous || next"}],style:(_vm.options.Style),attrs:{"id":"paginator"}},[_c('nav',[_c('ul',{staticClass:"paginator"},[_c('li',{directives:[{name:"show",rawName:"v-show",value:(_vm.previous),expression:"previous"}]},[_c('a',{attrs:{"href":"#"},on:{"click":function($event){$event.preventDefault();return _vm.paginate('previous')}}},[_vm._v(" < Previous ")])]),_vm._l((_vm.paginatorArray),function(item,index){return _c('li',[_c('a',{class:_vm.getActiveClass(item),attrs:{"href":"#"},on:{"click":function($event){$event.preventDefault();return _vm.pageChanged(item)}}},[_vm._v(" "+_vm._s(item)+" ")])])}),_c('li',{directives:[{name:"show",rawName:"v-show",value:(_vm.next),expression:"next"}]},[_c('a',{attrs:{"href":"#"},on:{"click":function($event){$event.preventDefault();return _vm.paginate('next')}}},[_vm._v(" Next > ")])])],2)])])])}
 var vue_paginationvue_type_template_id_3db34528_staticRenderFns = []
 
 
@@ -13813,8 +13822,12 @@ window.$ = jquery_default.a;
 
 /* harmony default export */ var vue_paginationvue_type_script_lang_js_ = ({
   name: "VuePagination",
-  props: ['limit', 'display', 'bus'],
-
+  props: {
+    limit: Number,
+    options: Object,
+    verbose: Boolean,
+    bus: Object
+  },
   data() {
     return {
       page: 1,
@@ -13827,8 +13840,18 @@ window.$ = jquery_default.a;
 
   created: function() {
 
+    //set default value
+    if (this.options == undefined) {
+      this.options = {
+        Style: "",
+      };
+    }
+    if (this.options.Style == "") {
+      this.options.Style = "font-family: Arial, Helvetica, sans-serif; font-size: 16px;";
+    }
+
     this.$on('updatePaginator', function() {
-      console.log('(vue-paginator) ... update Paginator');
+      this.log('(vue-paginator) ... update Paginator');
       if (this.maxPage == 1) {
         this.next = false;
         this.previous = false;
@@ -13851,8 +13874,8 @@ window.$ = jquery_default.a;
     }.bind(this));
 
 
-    this.bus.$on('maxPage', function(maxpage) {
-      console.log('(vue-paginator)... old max page:' + this.maxPage + '... new max page:' + maxpage);
+    this.bus.$on('vue-custom-grid:maxPage', function(maxpage) {
+      this.log('(vue-paginator)... old max page:' + this.maxPage + '... new max page:' + maxpage);
       if (this.maxPage != maxpage) {
         this.maxPage = maxpage;
         this.makePaginator();
@@ -13901,7 +13924,7 @@ window.$ = jquery_default.a;
     },
 
     makePaginator() {
-      console.log('(vue-paginator) ... makePaginator');
+      this.log('(vue-paginator) ... makePaginator');
       this.paginatorArray = [];
       var tempArray = [];
       if (this.limit > 3 && this.maxPage > 6) {
@@ -13919,8 +13942,7 @@ window.$ = jquery_default.a;
         }
 
         if (makeafter && ((this.page + 2) > this.maxPage)) {
-          //this.paginatorArray.push(1);
-          //this.paginatorArray.push(2);
+
           tempArray.push(1);
           tempArray.push(2);
         }
@@ -13956,7 +13978,7 @@ window.$ = jquery_default.a;
       } else {
 
         for (var i = 1; i <= this.maxPage; i++) {
-          //this.paginatorArray.push(i);
+
           tempArray.push(i);
         }
         this.paginatorArray = tempArray;
@@ -13966,10 +13988,17 @@ window.$ = jquery_default.a;
     },
 
     getActiveClass(numberpager) {
-      console.log("(vue-paginator) numberpager:" + numberpager + " , this.page:" + this.page + "so..." + (numberpager == this.page));
-      return (numberpager == this.page) ? "paginator-active" : "paginator-unactive";
-      //return (numberpager == this.page);
-    }
+      this.log("(vue-paginator) numberpager:" + numberpager + " , this.page:" + this.page + "so..." + (numberpager == this.page));
+      return (numberpager == this.page) ? "page-active" : "page-unactive";
+
+    },
+
+    log: function(message) {
+      if (this.verbose) {
+        console.log(message);
+      }
+
+    },
 
   }
 });
@@ -16892,201 +16921,6 @@ webpackContext.id = "4678";
 
 /***/ }),
 
-/***/ "5949":
-/***/ (function(module, exports, __webpack_require__) {
-
-/*!
-  * Bootstrap util.js v4.4.1 (https://getbootstrap.com/)
-  * Copyright 2011-2019 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
-  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
-  */
-(function (global, factory) {
-   true ? module.exports = factory(__webpack_require__("1157")) :
-  undefined;
-}(this, (function ($) { 'use strict';
-
-  $ = $ && $.hasOwnProperty('default') ? $['default'] : $;
-
-  /**
-   * --------------------------------------------------------------------------
-   * Bootstrap (v4.4.1): util.js
-   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
-   * --------------------------------------------------------------------------
-   */
-  /**
-   * ------------------------------------------------------------------------
-   * Private TransitionEnd Helpers
-   * ------------------------------------------------------------------------
-   */
-
-  var TRANSITION_END = 'transitionend';
-  var MAX_UID = 1000000;
-  var MILLISECONDS_MULTIPLIER = 1000; // Shoutout AngusCroll (https://goo.gl/pxwQGp)
-
-  function toType(obj) {
-    return {}.toString.call(obj).match(/\s([a-z]+)/i)[1].toLowerCase();
-  }
-
-  function getSpecialTransitionEndEvent() {
-    return {
-      bindType: TRANSITION_END,
-      delegateType: TRANSITION_END,
-      handle: function handle(event) {
-        if ($(event.target).is(this)) {
-          return event.handleObj.handler.apply(this, arguments); // eslint-disable-line prefer-rest-params
-        }
-
-        return undefined; // eslint-disable-line no-undefined
-      }
-    };
-  }
-
-  function transitionEndEmulator(duration) {
-    var _this = this;
-
-    var called = false;
-    $(this).one(Util.TRANSITION_END, function () {
-      called = true;
-    });
-    setTimeout(function () {
-      if (!called) {
-        Util.triggerTransitionEnd(_this);
-      }
-    }, duration);
-    return this;
-  }
-
-  function setTransitionEndSupport() {
-    $.fn.emulateTransitionEnd = transitionEndEmulator;
-    $.event.special[Util.TRANSITION_END] = getSpecialTransitionEndEvent();
-  }
-  /**
-   * --------------------------------------------------------------------------
-   * Public Util Api
-   * --------------------------------------------------------------------------
-   */
-
-
-  var Util = {
-    TRANSITION_END: 'bsTransitionEnd',
-    getUID: function getUID(prefix) {
-      do {
-        // eslint-disable-next-line no-bitwise
-        prefix += ~~(Math.random() * MAX_UID); // "~~" acts like a faster Math.floor() here
-      } while (document.getElementById(prefix));
-
-      return prefix;
-    },
-    getSelectorFromElement: function getSelectorFromElement(element) {
-      var selector = element.getAttribute('data-target');
-
-      if (!selector || selector === '#') {
-        var hrefAttr = element.getAttribute('href');
-        selector = hrefAttr && hrefAttr !== '#' ? hrefAttr.trim() : '';
-      }
-
-      try {
-        return document.querySelector(selector) ? selector : null;
-      } catch (err) {
-        return null;
-      }
-    },
-    getTransitionDurationFromElement: function getTransitionDurationFromElement(element) {
-      if (!element) {
-        return 0;
-      } // Get transition-duration of the element
-
-
-      var transitionDuration = $(element).css('transition-duration');
-      var transitionDelay = $(element).css('transition-delay');
-      var floatTransitionDuration = parseFloat(transitionDuration);
-      var floatTransitionDelay = parseFloat(transitionDelay); // Return 0 if element or transition duration is not found
-
-      if (!floatTransitionDuration && !floatTransitionDelay) {
-        return 0;
-      } // If multiple durations are defined, take the first
-
-
-      transitionDuration = transitionDuration.split(',')[0];
-      transitionDelay = transitionDelay.split(',')[0];
-      return (parseFloat(transitionDuration) + parseFloat(transitionDelay)) * MILLISECONDS_MULTIPLIER;
-    },
-    reflow: function reflow(element) {
-      return element.offsetHeight;
-    },
-    triggerTransitionEnd: function triggerTransitionEnd(element) {
-      $(element).trigger(TRANSITION_END);
-    },
-    // TODO: Remove in v5
-    supportsTransitionEnd: function supportsTransitionEnd() {
-      return Boolean(TRANSITION_END);
-    },
-    isElement: function isElement(obj) {
-      return (obj[0] || obj).nodeType;
-    },
-    typeCheckConfig: function typeCheckConfig(componentName, config, configTypes) {
-      for (var property in configTypes) {
-        if (Object.prototype.hasOwnProperty.call(configTypes, property)) {
-          var expectedTypes = configTypes[property];
-          var value = config[property];
-          var valueType = value && Util.isElement(value) ? 'element' : toType(value);
-
-          if (!new RegExp(expectedTypes).test(valueType)) {
-            throw new Error(componentName.toUpperCase() + ": " + ("Option \"" + property + "\" provided type \"" + valueType + "\" ") + ("but expected type \"" + expectedTypes + "\"."));
-          }
-        }
-      }
-    },
-    findShadowRoot: function findShadowRoot(element) {
-      if (!document.documentElement.attachShadow) {
-        return null;
-      } // Can find the shadow root otherwise it'll return the document
-
-
-      if (typeof element.getRootNode === 'function') {
-        var root = element.getRootNode();
-        return root instanceof ShadowRoot ? root : null;
-      }
-
-      if (element instanceof ShadowRoot) {
-        return element;
-      } // when we don't find a shadow root
-
-
-      if (!element.parentNode) {
-        return null;
-      }
-
-      return Util.findShadowRoot(element.parentNode);
-    },
-    jQueryDetection: function jQueryDetection() {
-      if (typeof $ === 'undefined') {
-        throw new TypeError('Bootstrap\'s JavaScript requires jQuery. jQuery must be included before Bootstrap\'s JavaScript.');
-      }
-
-      var version = $.fn.jquery.split(' ')[0].split('.');
-      var minMajor = 1;
-      var ltMajor = 2;
-      var minMinor = 9;
-      var minPatch = 1;
-      var maxMajor = 4;
-
-      if (version[0] < ltMajor && version[1] < minMinor || version[0] === minMajor && version[1] === minMinor && version[2] < minPatch || version[0] >= maxMajor) {
-        throw new Error('Bootstrap\'s JavaScript requires at least jQuery v1.9.1 but less than v4.0.0');
-      }
-    }
-  };
-  Util.jQueryDetection();
-  setTransitionEndSupport();
-
-  return Util;
-
-})));
-//# sourceMappingURL=util.js.map
-
-
-/***/ }),
-
 /***/ "598a":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -19045,697 +18879,6 @@ webpackContext.id = "4678";
     return sk;
 
 })));
-
-
-/***/ }),
-
-/***/ "7c2b":
-/***/ (function(module, exports, __webpack_require__) {
-
-/*!
-  * Bootstrap modal.js v4.4.1 (https://getbootstrap.com/)
-  * Copyright 2011-2019 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
-  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
-  */
-(function (global, factory) {
-   true ? module.exports = factory(__webpack_require__("1157"), __webpack_require__("5949")) :
-  undefined;
-}(this, (function ($, Util) { 'use strict';
-
-  $ = $ && $.hasOwnProperty('default') ? $['default'] : $;
-  Util = Util && Util.hasOwnProperty('default') ? Util['default'] : Util;
-
-  function _defineProperties(target, props) {
-    for (var i = 0; i < props.length; i++) {
-      var descriptor = props[i];
-      descriptor.enumerable = descriptor.enumerable || false;
-      descriptor.configurable = true;
-      if ("value" in descriptor) descriptor.writable = true;
-      Object.defineProperty(target, descriptor.key, descriptor);
-    }
-  }
-
-  function _createClass(Constructor, protoProps, staticProps) {
-    if (protoProps) _defineProperties(Constructor.prototype, protoProps);
-    if (staticProps) _defineProperties(Constructor, staticProps);
-    return Constructor;
-  }
-
-  function _defineProperty(obj, key, value) {
-    if (key in obj) {
-      Object.defineProperty(obj, key, {
-        value: value,
-        enumerable: true,
-        configurable: true,
-        writable: true
-      });
-    } else {
-      obj[key] = value;
-    }
-
-    return obj;
-  }
-
-  function ownKeys(object, enumerableOnly) {
-    var keys = Object.keys(object);
-
-    if (Object.getOwnPropertySymbols) {
-      var symbols = Object.getOwnPropertySymbols(object);
-      if (enumerableOnly) symbols = symbols.filter(function (sym) {
-        return Object.getOwnPropertyDescriptor(object, sym).enumerable;
-      });
-      keys.push.apply(keys, symbols);
-    }
-
-    return keys;
-  }
-
-  function _objectSpread2(target) {
-    for (var i = 1; i < arguments.length; i++) {
-      var source = arguments[i] != null ? arguments[i] : {};
-
-      if (i % 2) {
-        ownKeys(Object(source), true).forEach(function (key) {
-          _defineProperty(target, key, source[key]);
-        });
-      } else if (Object.getOwnPropertyDescriptors) {
-        Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
-      } else {
-        ownKeys(Object(source)).forEach(function (key) {
-          Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
-        });
-      }
-    }
-
-    return target;
-  }
-
-  /**
-   * ------------------------------------------------------------------------
-   * Constants
-   * ------------------------------------------------------------------------
-   */
-
-  var NAME = 'modal';
-  var VERSION = '4.4.1';
-  var DATA_KEY = 'bs.modal';
-  var EVENT_KEY = "." + DATA_KEY;
-  var DATA_API_KEY = '.data-api';
-  var JQUERY_NO_CONFLICT = $.fn[NAME];
-  var ESCAPE_KEYCODE = 27; // KeyboardEvent.which value for Escape (Esc) key
-
-  var Default = {
-    backdrop: true,
-    keyboard: true,
-    focus: true,
-    show: true
-  };
-  var DefaultType = {
-    backdrop: '(boolean|string)',
-    keyboard: 'boolean',
-    focus: 'boolean',
-    show: 'boolean'
-  };
-  var Event = {
-    HIDE: "hide" + EVENT_KEY,
-    HIDE_PREVENTED: "hidePrevented" + EVENT_KEY,
-    HIDDEN: "hidden" + EVENT_KEY,
-    SHOW: "show" + EVENT_KEY,
-    SHOWN: "shown" + EVENT_KEY,
-    FOCUSIN: "focusin" + EVENT_KEY,
-    RESIZE: "resize" + EVENT_KEY,
-    CLICK_DISMISS: "click.dismiss" + EVENT_KEY,
-    KEYDOWN_DISMISS: "keydown.dismiss" + EVENT_KEY,
-    MOUSEUP_DISMISS: "mouseup.dismiss" + EVENT_KEY,
-    MOUSEDOWN_DISMISS: "mousedown.dismiss" + EVENT_KEY,
-    CLICK_DATA_API: "click" + EVENT_KEY + DATA_API_KEY
-  };
-  var ClassName = {
-    SCROLLABLE: 'modal-dialog-scrollable',
-    SCROLLBAR_MEASURER: 'modal-scrollbar-measure',
-    BACKDROP: 'modal-backdrop',
-    OPEN: 'modal-open',
-    FADE: 'fade',
-    SHOW: 'show',
-    STATIC: 'modal-static'
-  };
-  var Selector = {
-    DIALOG: '.modal-dialog',
-    MODAL_BODY: '.modal-body',
-    DATA_TOGGLE: '[data-toggle="modal"]',
-    DATA_DISMISS: '[data-dismiss="modal"]',
-    FIXED_CONTENT: '.fixed-top, .fixed-bottom, .is-fixed, .sticky-top',
-    STICKY_CONTENT: '.sticky-top'
-  };
-  /**
-   * ------------------------------------------------------------------------
-   * Class Definition
-   * ------------------------------------------------------------------------
-   */
-
-  var Modal =
-  /*#__PURE__*/
-  function () {
-    function Modal(element, config) {
-      this._config = this._getConfig(config);
-      this._element = element;
-      this._dialog = element.querySelector(Selector.DIALOG);
-      this._backdrop = null;
-      this._isShown = false;
-      this._isBodyOverflowing = false;
-      this._ignoreBackdropClick = false;
-      this._isTransitioning = false;
-      this._scrollbarWidth = 0;
-    } // Getters
-
-
-    var _proto = Modal.prototype;
-
-    // Public
-    _proto.toggle = function toggle(relatedTarget) {
-      return this._isShown ? this.hide() : this.show(relatedTarget);
-    };
-
-    _proto.show = function show(relatedTarget) {
-      var _this = this;
-
-      if (this._isShown || this._isTransitioning) {
-        return;
-      }
-
-      if ($(this._element).hasClass(ClassName.FADE)) {
-        this._isTransitioning = true;
-      }
-
-      var showEvent = $.Event(Event.SHOW, {
-        relatedTarget: relatedTarget
-      });
-      $(this._element).trigger(showEvent);
-
-      if (this._isShown || showEvent.isDefaultPrevented()) {
-        return;
-      }
-
-      this._isShown = true;
-
-      this._checkScrollbar();
-
-      this._setScrollbar();
-
-      this._adjustDialog();
-
-      this._setEscapeEvent();
-
-      this._setResizeEvent();
-
-      $(this._element).on(Event.CLICK_DISMISS, Selector.DATA_DISMISS, function (event) {
-        return _this.hide(event);
-      });
-      $(this._dialog).on(Event.MOUSEDOWN_DISMISS, function () {
-        $(_this._element).one(Event.MOUSEUP_DISMISS, function (event) {
-          if ($(event.target).is(_this._element)) {
-            _this._ignoreBackdropClick = true;
-          }
-        });
-      });
-
-      this._showBackdrop(function () {
-        return _this._showElement(relatedTarget);
-      });
-    };
-
-    _proto.hide = function hide(event) {
-      var _this2 = this;
-
-      if (event) {
-        event.preventDefault();
-      }
-
-      if (!this._isShown || this._isTransitioning) {
-        return;
-      }
-
-      var hideEvent = $.Event(Event.HIDE);
-      $(this._element).trigger(hideEvent);
-
-      if (!this._isShown || hideEvent.isDefaultPrevented()) {
-        return;
-      }
-
-      this._isShown = false;
-      var transition = $(this._element).hasClass(ClassName.FADE);
-
-      if (transition) {
-        this._isTransitioning = true;
-      }
-
-      this._setEscapeEvent();
-
-      this._setResizeEvent();
-
-      $(document).off(Event.FOCUSIN);
-      $(this._element).removeClass(ClassName.SHOW);
-      $(this._element).off(Event.CLICK_DISMISS);
-      $(this._dialog).off(Event.MOUSEDOWN_DISMISS);
-
-      if (transition) {
-        var transitionDuration = Util.getTransitionDurationFromElement(this._element);
-        $(this._element).one(Util.TRANSITION_END, function (event) {
-          return _this2._hideModal(event);
-        }).emulateTransitionEnd(transitionDuration);
-      } else {
-        this._hideModal();
-      }
-    };
-
-    _proto.dispose = function dispose() {
-      [window, this._element, this._dialog].forEach(function (htmlElement) {
-        return $(htmlElement).off(EVENT_KEY);
-      });
-      /**
-       * `document` has 2 events `Event.FOCUSIN` and `Event.CLICK_DATA_API`
-       * Do not move `document` in `htmlElements` array
-       * It will remove `Event.CLICK_DATA_API` event that should remain
-       */
-
-      $(document).off(Event.FOCUSIN);
-      $.removeData(this._element, DATA_KEY);
-      this._config = null;
-      this._element = null;
-      this._dialog = null;
-      this._backdrop = null;
-      this._isShown = null;
-      this._isBodyOverflowing = null;
-      this._ignoreBackdropClick = null;
-      this._isTransitioning = null;
-      this._scrollbarWidth = null;
-    };
-
-    _proto.handleUpdate = function handleUpdate() {
-      this._adjustDialog();
-    } // Private
-    ;
-
-    _proto._getConfig = function _getConfig(config) {
-      config = _objectSpread2({}, Default, {}, config);
-      Util.typeCheckConfig(NAME, config, DefaultType);
-      return config;
-    };
-
-    _proto._triggerBackdropTransition = function _triggerBackdropTransition() {
-      var _this3 = this;
-
-      if (this._config.backdrop === 'static') {
-        var hideEventPrevented = $.Event(Event.HIDE_PREVENTED);
-        $(this._element).trigger(hideEventPrevented);
-
-        if (hideEventPrevented.defaultPrevented) {
-          return;
-        }
-
-        this._element.classList.add(ClassName.STATIC);
-
-        var modalTransitionDuration = Util.getTransitionDurationFromElement(this._element);
-        $(this._element).one(Util.TRANSITION_END, function () {
-          _this3._element.classList.remove(ClassName.STATIC);
-        }).emulateTransitionEnd(modalTransitionDuration);
-
-        this._element.focus();
-      } else {
-        this.hide();
-      }
-    };
-
-    _proto._showElement = function _showElement(relatedTarget) {
-      var _this4 = this;
-
-      var transition = $(this._element).hasClass(ClassName.FADE);
-      var modalBody = this._dialog ? this._dialog.querySelector(Selector.MODAL_BODY) : null;
-
-      if (!this._element.parentNode || this._element.parentNode.nodeType !== Node.ELEMENT_NODE) {
-        // Don't move modal's DOM position
-        document.body.appendChild(this._element);
-      }
-
-      this._element.style.display = 'block';
-
-      this._element.removeAttribute('aria-hidden');
-
-      this._element.setAttribute('aria-modal', true);
-
-      if ($(this._dialog).hasClass(ClassName.SCROLLABLE) && modalBody) {
-        modalBody.scrollTop = 0;
-      } else {
-        this._element.scrollTop = 0;
-      }
-
-      if (transition) {
-        Util.reflow(this._element);
-      }
-
-      $(this._element).addClass(ClassName.SHOW);
-
-      if (this._config.focus) {
-        this._enforceFocus();
-      }
-
-      var shownEvent = $.Event(Event.SHOWN, {
-        relatedTarget: relatedTarget
-      });
-
-      var transitionComplete = function transitionComplete() {
-        if (_this4._config.focus) {
-          _this4._element.focus();
-        }
-
-        _this4._isTransitioning = false;
-        $(_this4._element).trigger(shownEvent);
-      };
-
-      if (transition) {
-        var transitionDuration = Util.getTransitionDurationFromElement(this._dialog);
-        $(this._dialog).one(Util.TRANSITION_END, transitionComplete).emulateTransitionEnd(transitionDuration);
-      } else {
-        transitionComplete();
-      }
-    };
-
-    _proto._enforceFocus = function _enforceFocus() {
-      var _this5 = this;
-
-      $(document).off(Event.FOCUSIN) // Guard against infinite focus loop
-      .on(Event.FOCUSIN, function (event) {
-        if (document !== event.target && _this5._element !== event.target && $(_this5._element).has(event.target).length === 0) {
-          _this5._element.focus();
-        }
-      });
-    };
-
-    _proto._setEscapeEvent = function _setEscapeEvent() {
-      var _this6 = this;
-
-      if (this._isShown && this._config.keyboard) {
-        $(this._element).on(Event.KEYDOWN_DISMISS, function (event) {
-          if (event.which === ESCAPE_KEYCODE) {
-            _this6._triggerBackdropTransition();
-          }
-        });
-      } else if (!this._isShown) {
-        $(this._element).off(Event.KEYDOWN_DISMISS);
-      }
-    };
-
-    _proto._setResizeEvent = function _setResizeEvent() {
-      var _this7 = this;
-
-      if (this._isShown) {
-        $(window).on(Event.RESIZE, function (event) {
-          return _this7.handleUpdate(event);
-        });
-      } else {
-        $(window).off(Event.RESIZE);
-      }
-    };
-
-    _proto._hideModal = function _hideModal() {
-      var _this8 = this;
-
-      this._element.style.display = 'none';
-
-      this._element.setAttribute('aria-hidden', true);
-
-      this._element.removeAttribute('aria-modal');
-
-      this._isTransitioning = false;
-
-      this._showBackdrop(function () {
-        $(document.body).removeClass(ClassName.OPEN);
-
-        _this8._resetAdjustments();
-
-        _this8._resetScrollbar();
-
-        $(_this8._element).trigger(Event.HIDDEN);
-      });
-    };
-
-    _proto._removeBackdrop = function _removeBackdrop() {
-      if (this._backdrop) {
-        $(this._backdrop).remove();
-        this._backdrop = null;
-      }
-    };
-
-    _proto._showBackdrop = function _showBackdrop(callback) {
-      var _this9 = this;
-
-      var animate = $(this._element).hasClass(ClassName.FADE) ? ClassName.FADE : '';
-
-      if (this._isShown && this._config.backdrop) {
-        this._backdrop = document.createElement('div');
-        this._backdrop.className = ClassName.BACKDROP;
-
-        if (animate) {
-          this._backdrop.classList.add(animate);
-        }
-
-        $(this._backdrop).appendTo(document.body);
-        $(this._element).on(Event.CLICK_DISMISS, function (event) {
-          if (_this9._ignoreBackdropClick) {
-            _this9._ignoreBackdropClick = false;
-            return;
-          }
-
-          if (event.target !== event.currentTarget) {
-            return;
-          }
-
-          _this9._triggerBackdropTransition();
-        });
-
-        if (animate) {
-          Util.reflow(this._backdrop);
-        }
-
-        $(this._backdrop).addClass(ClassName.SHOW);
-
-        if (!callback) {
-          return;
-        }
-
-        if (!animate) {
-          callback();
-          return;
-        }
-
-        var backdropTransitionDuration = Util.getTransitionDurationFromElement(this._backdrop);
-        $(this._backdrop).one(Util.TRANSITION_END, callback).emulateTransitionEnd(backdropTransitionDuration);
-      } else if (!this._isShown && this._backdrop) {
-        $(this._backdrop).removeClass(ClassName.SHOW);
-
-        var callbackRemove = function callbackRemove() {
-          _this9._removeBackdrop();
-
-          if (callback) {
-            callback();
-          }
-        };
-
-        if ($(this._element).hasClass(ClassName.FADE)) {
-          var _backdropTransitionDuration = Util.getTransitionDurationFromElement(this._backdrop);
-
-          $(this._backdrop).one(Util.TRANSITION_END, callbackRemove).emulateTransitionEnd(_backdropTransitionDuration);
-        } else {
-          callbackRemove();
-        }
-      } else if (callback) {
-        callback();
-      }
-    } // ----------------------------------------------------------------------
-    // the following methods are used to handle overflowing modals
-    // todo (fat): these should probably be refactored out of modal.js
-    // ----------------------------------------------------------------------
-    ;
-
-    _proto._adjustDialog = function _adjustDialog() {
-      var isModalOverflowing = this._element.scrollHeight > document.documentElement.clientHeight;
-
-      if (!this._isBodyOverflowing && isModalOverflowing) {
-        this._element.style.paddingLeft = this._scrollbarWidth + "px";
-      }
-
-      if (this._isBodyOverflowing && !isModalOverflowing) {
-        this._element.style.paddingRight = this._scrollbarWidth + "px";
-      }
-    };
-
-    _proto._resetAdjustments = function _resetAdjustments() {
-      this._element.style.paddingLeft = '';
-      this._element.style.paddingRight = '';
-    };
-
-    _proto._checkScrollbar = function _checkScrollbar() {
-      var rect = document.body.getBoundingClientRect();
-      this._isBodyOverflowing = rect.left + rect.right < window.innerWidth;
-      this._scrollbarWidth = this._getScrollbarWidth();
-    };
-
-    _proto._setScrollbar = function _setScrollbar() {
-      var _this10 = this;
-
-      if (this._isBodyOverflowing) {
-        // Note: DOMNode.style.paddingRight returns the actual value or '' if not set
-        //   while $(DOMNode).css('padding-right') returns the calculated value or 0 if not set
-        var fixedContent = [].slice.call(document.querySelectorAll(Selector.FIXED_CONTENT));
-        var stickyContent = [].slice.call(document.querySelectorAll(Selector.STICKY_CONTENT)); // Adjust fixed content padding
-
-        $(fixedContent).each(function (index, element) {
-          var actualPadding = element.style.paddingRight;
-          var calculatedPadding = $(element).css('padding-right');
-          $(element).data('padding-right', actualPadding).css('padding-right', parseFloat(calculatedPadding) + _this10._scrollbarWidth + "px");
-        }); // Adjust sticky content margin
-
-        $(stickyContent).each(function (index, element) {
-          var actualMargin = element.style.marginRight;
-          var calculatedMargin = $(element).css('margin-right');
-          $(element).data('margin-right', actualMargin).css('margin-right', parseFloat(calculatedMargin) - _this10._scrollbarWidth + "px");
-        }); // Adjust body padding
-
-        var actualPadding = document.body.style.paddingRight;
-        var calculatedPadding = $(document.body).css('padding-right');
-        $(document.body).data('padding-right', actualPadding).css('padding-right', parseFloat(calculatedPadding) + this._scrollbarWidth + "px");
-      }
-
-      $(document.body).addClass(ClassName.OPEN);
-    };
-
-    _proto._resetScrollbar = function _resetScrollbar() {
-      // Restore fixed content padding
-      var fixedContent = [].slice.call(document.querySelectorAll(Selector.FIXED_CONTENT));
-      $(fixedContent).each(function (index, element) {
-        var padding = $(element).data('padding-right');
-        $(element).removeData('padding-right');
-        element.style.paddingRight = padding ? padding : '';
-      }); // Restore sticky content
-
-      var elements = [].slice.call(document.querySelectorAll("" + Selector.STICKY_CONTENT));
-      $(elements).each(function (index, element) {
-        var margin = $(element).data('margin-right');
-
-        if (typeof margin !== 'undefined') {
-          $(element).css('margin-right', margin).removeData('margin-right');
-        }
-      }); // Restore body padding
-
-      var padding = $(document.body).data('padding-right');
-      $(document.body).removeData('padding-right');
-      document.body.style.paddingRight = padding ? padding : '';
-    };
-
-    _proto._getScrollbarWidth = function _getScrollbarWidth() {
-      // thx d.walsh
-      var scrollDiv = document.createElement('div');
-      scrollDiv.className = ClassName.SCROLLBAR_MEASURER;
-      document.body.appendChild(scrollDiv);
-      var scrollbarWidth = scrollDiv.getBoundingClientRect().width - scrollDiv.clientWidth;
-      document.body.removeChild(scrollDiv);
-      return scrollbarWidth;
-    } // Static
-    ;
-
-    Modal._jQueryInterface = function _jQueryInterface(config, relatedTarget) {
-      return this.each(function () {
-        var data = $(this).data(DATA_KEY);
-
-        var _config = _objectSpread2({}, Default, {}, $(this).data(), {}, typeof config === 'object' && config ? config : {});
-
-        if (!data) {
-          data = new Modal(this, _config);
-          $(this).data(DATA_KEY, data);
-        }
-
-        if (typeof config === 'string') {
-          if (typeof data[config] === 'undefined') {
-            throw new TypeError("No method named \"" + config + "\"");
-          }
-
-          data[config](relatedTarget);
-        } else if (_config.show) {
-          data.show(relatedTarget);
-        }
-      });
-    };
-
-    _createClass(Modal, null, [{
-      key: "VERSION",
-      get: function get() {
-        return VERSION;
-      }
-    }, {
-      key: "Default",
-      get: function get() {
-        return Default;
-      }
-    }]);
-
-    return Modal;
-  }();
-  /**
-   * ------------------------------------------------------------------------
-   * Data Api implementation
-   * ------------------------------------------------------------------------
-   */
-
-
-  $(document).on(Event.CLICK_DATA_API, Selector.DATA_TOGGLE, function (event) {
-    var _this11 = this;
-
-    var target;
-    var selector = Util.getSelectorFromElement(this);
-
-    if (selector) {
-      target = document.querySelector(selector);
-    }
-
-    var config = $(target).data(DATA_KEY) ? 'toggle' : _objectSpread2({}, $(target).data(), {}, $(this).data());
-
-    if (this.tagName === 'A' || this.tagName === 'AREA') {
-      event.preventDefault();
-    }
-
-    var $target = $(target).one(Event.SHOW, function (showEvent) {
-      if (showEvent.isDefaultPrevented()) {
-        // Only register focus restorer if modal will actually get shown
-        return;
-      }
-
-      $target.one(Event.HIDDEN, function () {
-        if ($(_this11).is(':visible')) {
-          _this11.focus();
-        }
-      });
-    });
-
-    Modal._jQueryInterface.call($(target), config, this);
-  });
-  /**
-   * ------------------------------------------------------------------------
-   * jQuery
-   * ------------------------------------------------------------------------
-   */
-
-  $.fn[NAME] = Modal._jQueryInterface;
-  $.fn[NAME].Constructor = Modal;
-
-  $.fn[NAME].noConflict = function () {
-    $.fn[NAME] = JQUERY_NO_CONFLICT;
-    return Modal._jQueryInterface;
-  };
-
-  return Modal;
-
-})));
-//# sourceMappingURL=modal.js.map
 
 
 /***/ }),

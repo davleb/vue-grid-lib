@@ -1,35 +1,35 @@
-.paginator-active{
-background-color: #F0F0F0 !important;
-color: red !important;
-margin-left: 25px !important;
-text-decoration: none !important;
-outline: 0 !important;
-
-
+ul.paginator {
+    display: inline-block;
+    padding: 0;
+    margin: 0 0;
+    margin-top: 6px;
+    float:right;
 }
 
-.paginator-unactive{
-background-color: white !important;
-color: blue !important;
-margin-left: 25px !important;
-text-decoration: none !important;
-outline: 0 !important;
+ul.paginator li {display: inline;}
 
-
+ul.paginator li a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+    border: 1px solid #ddd;
 }
 
-.curvedpage{
-
-  border-radius: 40px / 20px ;
-  margin-left: 5px;
-
-   padding:5px;
-   border: 1px solid grey;
+ul.paginator li a.active {
+    background-color: #ddd;
+    color: red;
 }
 
-.padding{
-  padding-left: 80;
-  padding-right: 80;
+.paginatorXXX li:first-child a {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.paginatorXXX li:last-child a {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 
 ul {
@@ -40,4 +40,18 @@ ul {
 li {
   display: inline-block;
   margin: 0 10px;
+}
+
+.page-active{
+background-color: #F0F0F0 !important;
+color: red !important;
+text-decoration: none !important;
+outline: 0 !important;
+}
+
+.page-unactive{
+background-color: white !important;
+color: blue !important;
+text-decoration: none !important;
+outline: 0 !important;
 }

@@ -105,8 +105,25 @@ Vue-Pagination is emitting an event "vue-pagination:pageUpdated" wich allows Vue
 ## Properties
 |   | Description  |Type   |Required   |Default   |
 |---|---|---|---|---|
-| fetchurl  |  String | No   |   |
-|   |   |   |   |
-|   |   |   |   |
+| fetchurl |  url for api returning json data  | String   | No  | |
+| feed | data for the grid  | Array  | yes if no fetchurl  ||
+|  dateformat |date format to use when cells content is a date   | String   | No  | YYYY MM DD
+| restitle | title above the grid| String| No||
+| language | language used for the component and grid headers translation| String| No| en|
+| translator | dico object with translation for grid headers| Object| No||
+| translator service | url for the api returning a dico| String| No| |
+| action | definition for action buttons in last column| Array| No||
+| actionscolumns | definition for action buttons in specific columns | Object| No||
+| actionplus | definition for action to add an item| String| No ||
+| actionsave | definition for action to save grid parameters| String| No||
+| customrender | optionnaly customize the render of specific column content| Object| No||
+| itemsperpage | items per page for grid and paginator | Number| No||
+| searchquery | search parameters to use with fetchurl | String| No||
+| sortedby | name of the column to use for sort | String| No||
+| sortedasc | asc or desc order to use with sortedby prop| Boolean| No| Asc|
+| options | minor options for display| Object| No||
+| bus | event bus | Object | yes if VuePaginator is used| |
+
+
 
 Copyright (c) 2020 David Lebret

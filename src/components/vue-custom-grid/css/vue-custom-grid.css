@@ -1,1 +1,152 @@
+table.visual{
+  border: 1px solid #ddd;
+  border-collapse: collapse;
+}
+table.visual tr:nth-child(even) {background-color: #f2f2f2;}
+table.visual tr, td, th {
+  border: 1px solid #ddd;
+  padding: 15px;
+  text-align: center;
+}
 
+ul.list-group{
+  columns: 2;
+  -webkit-columns: 2;
+  -moz-columns: 2;
+}
+
+.input-discrete{
+
+  margin: 0 auto;
+  border: none; /* <-- This thing here */
+  border:solid 1px #ccc;
+  border-radius: 4px;
+
+  width: 110px;
+  height: 20px;
+  font-size: 16px;
+
+}
+
+.btn-action{
+  border: none;
+  border-radius: 4px;
+  color: white;
+  width: 110px;
+  height: 30px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 2px 2px;
+  cursor: pointer;
+}
+
+.btn-action.primary{
+  background-color: #007bff;
+}
+
+.btn-action.secondary{
+  background-color: #6c757d;
+}
+
+
+/* button inside cell */
+.btn-icon {
+  border: none;
+  border-radius: 4px;
+  color: white;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 10px;
+  margin: 0px 1px;
+  cursor: pointer;
+}
+
+.btn-icon.black{
+  color: black;
+}
+
+.btn-icon.primary{
+  background-color: #007bff;
+}
+
+.btn-icon.info{
+ background-color: #17a2b8;
+}
+
+.btn-icon.success{
+ background-color: #28a745;
+}
+
+.btn-icon.warning{
+ background-color: #ffc107;
+ color: black;
+}
+
+.btn-icon.danger{
+ background-color: #dc3545;
+}
+
+.btn-icon.secondary{
+ background-color: #6c757d;
+}
+
+.btn-icon.black{
+ background-color: #343a40;
+}
+
+.btn-icon.light{
+ background-color: #f8f9fa;
+}
+
+.btn-icon.white{
+ background-color: #ffffff;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-header {
+  padding: 2px 16px;
+  //background-color: #5cb85c;
+  color: blue;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.modal-btn-close {
+  color: #aaa;
+  float: right;
+  font-size: 12px;
+  font-weight: normal;
+}
+
+.modal-btn-close:hover,
+.modal-btn-close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
