@@ -9,8 +9,12 @@ Bootstrap 4 oriented.
 It is build as a library, including three vuejs compoments: VueCustomGrid, VueAction, VuePagination.
 
 ## Demo
- [Online demo](https://davleb.github.io/vue-custom-grid/dist/demo.html)
+ For a demo with node, run
+ ```bash
+ npm run dev
+ ```
 
+ [Online demo with CDN] (https://davleb.github.io/vue-custom-grid/examples/index.html)
 
 ## Install
 ```bash
