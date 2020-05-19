@@ -14,7 +14,7 @@ It is build as a library, including three vuejs compoments: VueCustomGrid, VueAc
  npm run dev
  ```
 
- [Online demo with CDN] (https://davleb.github.io/vue-custom-grid/examples/index.html)
+ [Online demo with CDN] (https://davleb.github.io/vue-grid-lib/examples/index.html)
 
 ## Install
 ```bash
@@ -28,7 +28,7 @@ npm run dev
 
 ### build for production with minification
 ```bash
-npm run build-lib
+npm run build:lib
 ```
 
 ## Usage for Browser (CDN)
